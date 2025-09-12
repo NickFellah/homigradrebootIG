@@ -466,3 +466,23 @@ function homicide.GuiltLogic(ply,att,dmgInfo)
     return ply.roleT == att.roleT and 1 or 0
 end
 
+
+--[[]
+local function AllowRoleTTraitorButtons(ply, ent)
+    if not IsValid(ply) then return end
+
+    -- Don't allow specs/ghosts/etc. if those helpers exist
+    if ply.IsSpec and ply:IsSpec() then return false end
+    if ply.Alive and not ply:Alive() then return false end
+
+    -- Our custom traitor flag from this gamemode
+    if ply.roleT then
+        return true  -- explicitly allow
+    end
+
+    -- Return nil to let vanilla TTT handle real TTT traitors (if present)
+end
+
+-- Vanilla TTT
+hook.Add("TTTCanUseTraitorButton", "Homicide_RoleT_TraitorButtons", AllowRoleTTraitorButtons)
+]]

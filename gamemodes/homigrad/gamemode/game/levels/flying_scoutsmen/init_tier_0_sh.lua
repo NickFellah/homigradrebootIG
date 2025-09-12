@@ -1,4 +1,4 @@
-table.insert(LevelList, "flyingscoutsmen")
+--table.insert(LevelList, "flyingscoutsmen")
 flyingscoutsmen = {}
 flyingscoutsmen.Name = "Flying Scoutsmen (Free for All)"
 flyingscoutsmen.LoadScreenTime = 5.5

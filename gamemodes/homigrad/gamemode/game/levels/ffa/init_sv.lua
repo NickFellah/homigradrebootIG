@@ -220,5 +220,5 @@ function ffa.PlayerCanJoinTeam(ply, teamID)
     return true
 end
 
-
+function ffa.GuiltLogic() return false end
 damageTracking = {}

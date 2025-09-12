@@ -5,19 +5,7 @@ CLASS.secondary_weapon = {"weapon_glock"}
 CLASS.models = {}
 
 for i = 1,6 do
-	CLASS.models[#CLASS.models + 1] = "models/monolithservers/mpd/female_0"..i..".mdl"
-end
-
-for i = 1,6 do
-	CLASS.models[#CLASS.models + 1] = "models/monolithservers/mpd/female_0"..i.."_2.mdl"
-end
-
-for i = 1,6 do
-	CLASS.models[#CLASS.models + 1] = "models/monolithservers/mpd/male_0"..i..".mdl"
-end
-
-for i = 1,6 do
-	CLASS.models[#CLASS.models + 1] = "models/monolithservers/mpd/male_0"..i.."_2.mdl"
+	CLASS.models[#CLASS.models + 1] = "models/player/police.mdl"
 end
 
 CLASS.color = Color(75,75,75)

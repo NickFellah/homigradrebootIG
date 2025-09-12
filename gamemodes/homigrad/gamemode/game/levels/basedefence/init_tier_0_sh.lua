@@ -1,4 +1,4 @@
-table.insert(LevelList,"basedefence")
+--table.insert(LevelList,"basedefence")
 basedefence = {}
 basedefence.Name = "BaseDefence"
 

@@ -1,4 +1,4 @@
-table.insert(LevelList,"bombdefuse")
+--table.insert(LevelList,"bombdefuse")
 bombdefuse = {}
 bombdefuse.Name = "Bomb Defuse"
 

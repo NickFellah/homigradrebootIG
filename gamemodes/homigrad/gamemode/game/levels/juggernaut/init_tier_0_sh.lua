@@ -1,4 +1,4 @@
-table.insert(LevelList,"juggernaut")
+--table.insert(LevelList,"juggernaut")
 juggernaut = juggernaut or {}
 juggernaut.Name = "Juggernaut"
 

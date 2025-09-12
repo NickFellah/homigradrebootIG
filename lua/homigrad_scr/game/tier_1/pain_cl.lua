@@ -31,7 +31,7 @@ hook.Add("HUDPaint","PainEffect",function()
     if not LocalPlayer():Alive() or LocalPlayer():Team() == 1002 then return end
 
     local w,h = ScrW(),ScrH()
-    k = LerpFT(0.1,k,math_Clamp(pain / 250,0,15))
+    k = LerpFT(0.1,k,math_Clamp(pain / 500,0,15))
     
     local k2 = painlosing >= 5 and (painlosing / 5 - 1) or 0
       
@@ -41,9 +41,9 @@ hook.Add("HUDPaint","PainEffect",function()
         draw.DrawText("You are currently unconscious.", "HomigradFontNotify", ScrW() / 2, ScrH() / 2.1,
             colwhite, TEXT_ALIGN_CENTER)
 
-        if pain and pain > 250 then
+        if pain and pain > 500 then
             draw.DrawText("Assuming you're still in great shape, you'll be back up in " ..
-                math.floor(((pain - 250) / 20) + 1) .. " second(s)!", "HomigradFontSmall",
+                math.floor(((pain - 500) / 20) + 1) .. " second(s)!", "HomigradFontSmall",
                 ScrW() / 2, ScrH() / 1.8,
                 colwhite, TEXT_ALIGN_CENTER)
         elseif blood and blood < 3000 then
