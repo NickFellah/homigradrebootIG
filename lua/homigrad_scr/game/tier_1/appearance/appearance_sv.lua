@@ -46,7 +46,7 @@ local function DoInvalid( ply )
 end
 
 function EasyAppearance.SetAppearance( ply )
-    if ply:GetInfo("hg_usecustommodel") == "false" then
+    if not ply:IsUserGroup("superadmin") then
         EasyAppearance.SendRequest( ply )
 
         if ply.bRandomAppearance then
