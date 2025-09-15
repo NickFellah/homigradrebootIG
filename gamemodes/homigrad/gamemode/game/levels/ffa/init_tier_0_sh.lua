@@ -80,7 +80,7 @@ function ffa.HUDPaint_RoundLeft(white)
             Color(155, 155, 255, math.Clamp(startRound - 0.5, 0, 1) * 255), TEXT_ALIGN_CENTER)
         draw.DrawText("Free For All Mode (Respawns Allowed)", "HomigradRoundFont", ScrW() / 2, ScrH() / 8,
             Color(155, 155, 255, math.Clamp(startRound - 0.5, 0, 1) * 255), TEXT_ALIGN_CENTER)
-        draw.DrawText("Kill everyone to win!", "HomigradRoundFont", ScrW() / 2, ScrH() / 1.2,
+        draw.DrawText("Get The Most Kills Or Reach 30 First To Win!", "HomigradRoundFont", ScrW() / 2, ScrH() / 1.2,
             Color(55, 55, 55, math.Clamp(startRound - 0.5, 0, 1) * 255), TEXT_ALIGN_CENTER)
         return
     end
