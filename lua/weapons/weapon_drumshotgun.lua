@@ -3,7 +3,7 @@ SWEP.Base = 'salat_base' -- base
 
 SWEP.PrintName 				= "Drum Shotgun"
 SWEP.Author 				= "Homigrad"
-SWEP.Instructions			= "test again"
+SWEP.Instructions			= "Drum Drum Drum Drum Drum."
 SWEP.Category 				= "Weapon"
 
 SWEP.Spawnable 				= true
@@ -15,15 +15,15 @@ SWEP.Primary.ClipSize		= 7
 SWEP.Primary.DefaultClip	= 7
 SWEP.Primary.Automatic		= true
 SWEP.Primary.Ammo			= "12/70 gauge"
-SWEP.Primary.Cone = 0.1
-SWEP.Primary.Damage = 55
+SWEP.Primary.Cone = 0.05
+SWEP.Primary.Damage = 20
 SWEP.Primary.Spread = 0
 SWEP.Primary.Sound = "snds_jack_gmod/ez_weapons/auto_shotgun.wav"
 SWEP.Primary.SoundFar = "snds_jack_gmod/ez_weapons/shotgun_far.wav"
-SWEP.Primary.Force = 30
-SWEP.ReloadTime = 1
+SWEP.Primary.Force = 65
+SWEP.ReloadTime = 2
 SWEP.ShootWait = 0.15
-SWEP.NumBullet = 2
+SWEP.NumBullet = 5
 SWEP.Sight = true
 SWEP.TwoHands = true
 SWEP.shotgun = true
@@ -51,8 +51,8 @@ SWEP.DrawCrosshair			= false
 SWEP.ViewModel				= "models/pwb/weapons/w_protecta.mdl"
 SWEP.WorldModel				= "models/pwb/weapons/w_protecta.mdl"
 
-SWEP.vbwPos = Vector(.5, -5.5, 4)
-SWEP.vbwAng = Angle(80, -140, 20)
+SWEP.vbwPos = Vector(2.5, -4, -6)
+SWEP.vbwAng = Angle(0, -35, 0)
 
 SWEP.addAng = Angle(-3,0,0)
 SWEP.addPos = Vector(-14,-0.7,-0.5)

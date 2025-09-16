@@ -173,22 +173,31 @@ function tdm.GiveSwep(ply,list,mulClip1)
     if IsValid(wep) then
         wep:SetClip1(wep:GetMaxClip1())
 	    ply:GiveAmmo(wep:GetMaxClip1() * mulClip1,wep:GetPrimaryAmmoType())
+	else
+		print("Error giving weapon: "..tostring(list).." to "..ply:Nick())
     end
 end
 
+print("passed")
+
 function tdm.PlayerSpawn2(ply,teamID)
+	print("passed 1")
 	local teamTbl = tdm[tdm.teamEncoder[teamID]]
 	local color = teamTbl[2]
 
-	-- Set the player's model to the custom model if available, otherwise use a random team model
-    --local customModel = GetPlayerModelBySteamID(ply:SteamID())
+	print("passed 2")
 
-    --if customModel then
-        --ply:SetModel(customModel)
-		--ply:SetPlayerColor(color:ToVector())
-   -- else
-    ply:SetModel(teamTbl.models[math.random(#teamTbl.models)])
-   -- end
+	-- Set the player's model to the custom model if available, otherwise use a random team model
+    local customModel = GetPlayerModelBySteamID(ply:SteamID())
+
+    if customModel then
+        ply:SetModel(customModel)
+		ply:SetPlayerColor(color:ToVector())
+    else
+        ply:SetModel(teamTbl.models[math.random(#teamTbl.models)])
+    end
+
+	print("passed 3")
 
 	ply:SetPlayerColor(color:ToVector())
 
@@ -196,10 +205,14 @@ function tdm.PlayerSpawn2(ply,teamID)
 		ply:Give("weapon_vape")
 	end
 
-	for i,weapon in pairs(teamTbl.weapons) do ply:Give(weapon) end
+	for i,weapon in pairs(teamTbl.weapons) do ply:Give(weapon) print("gave") end
+
+	print("passed 4")
 
 	tdm.GiveSwep(ply,teamTbl.main_weapon)
 	tdm.GiveSwep(ply,teamTbl.secondary_weapon)
+
+	print("passed 5")
 
 	if math.random(1,4) == 4 then ply:Give("adrenaline") end
 
@@ -210,9 +223,13 @@ function tdm.PlayerSpawn2(ply,teamID)
 
 	if math.random(1,3) == 3 then if ply:Team() == 1 then ply:Give("weapon_hg_f1") else ply:Give("weapon_hg_rgd5") end end
 
+	print("passed 6")
+
 	JMod.EZ_Equip_Armor(ply,"Medium-Helmet",color)
 	local r = math.random(1,2)
 	JMod.EZ_Equip_Armor(ply,(r == 1 and "Medium-Vest") or (r == 2 and "Light-Vest"),color)
+
+	print("passed 7")
 end
 
 function tdm.PlayerInitialSpawn(ply) ply:SetTeam(math.random(2)) end

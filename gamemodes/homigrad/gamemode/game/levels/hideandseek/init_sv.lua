@@ -119,7 +119,7 @@ end
 function hideandseek.EndRound(winner) tdm.EndRoundMessage(winner) end
 
 function hideandseek.PlayerSpawn(ply,teamID)
-	 if not teamID or not hideandseek.teamEncoder[teamID] then
+	if not teamID or not hideandseek.teamEncoder[teamID] then
         print("[Hide & Seek] Invalid teamID for", ply, "teamID:", teamID)
         return
     end

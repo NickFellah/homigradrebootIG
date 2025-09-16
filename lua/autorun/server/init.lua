@@ -55,3 +55,42 @@ hook.Add("Think","SIX.SENDTOSIDE",function()
 
     end
 end)
+
+local constructSetup = true
+
+local allowedMaps = {
+    ["gm_construct"] = true,
+    ["gm_flatgrass"] = true,
+}
+
+local function DoConstructSetup(ply, manual)
+    if manual == false then
+        if not allowedMaps[game.GetMap()] then print("return1") return end
+    end
+    
+    if not IsValid(ply) or not ply:IsAdmin() then print("return2") return end
+    if not constructSetup then print("return3") return end
+
+    constructSetup = false
+
+    if manual == true then ply:ChatPrint(ply:GetName().. " Started The Construct Setup! Please wait...") end
+    timer.Simple(2, function()
+        if not IsValid(ply) then return end
+        ply:ConCommand("say !bot 3")
+        ply:ConCommand("say !nortv 1")
+
+        print("Auto Homigrad Setup Initialized!")
+        ply:ChatPrint("Auto Homigrad Setup Initialized!")
+    end)
+end
+
+
+hook.Add("PlayerInitialSpawn", "ConstructSetupAuto", function(ply)
+    DoConstructSetup(ply, false)
+end)
+
+concommand.Add("construct_setup", function(ply, cmd, args)
+    DoConstructSetup(ply, true)
+end)
+
+

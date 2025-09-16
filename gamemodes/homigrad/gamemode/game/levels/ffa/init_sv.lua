@@ -45,14 +45,13 @@ local function giveAmmoForWeapons(ply)
 end
 
 local primaryWeapons = {
-    [1] = {"weapon_mp7", "weapon_ak74u", "weapon_akm", "weapon_uzi", "weapon_m4a1", "weapon_hk416", "weapon_galil"},
-    [2] = {"weapon_spas12", "weapon_xm1014", "weapon_remington870", "weapon_m590"},
-    [3] = {"weapon_mateba"},
-    [4] = {"weapon_hk_usp", "weapon_p99", "weapon_beretta"}
+    [1] = {"weapon_mp7", "weapon_ak74u", "weapon_akm", "weapon_uzi", "weapon_m4a1", "weapon_hk416", "weapon_galil", "weapon_vector", "weapon_tar21"},
+    [2] = {"weapon_spas12", "weapon_xm1014", "weapon_remington870", "weapon_m590", "weapon_drumshotgun", "weapon_doublebarrel_dulo", "weapon_semiauto_shotgun"},
 }
 
 local secondaryWeapons = {
-    [2] = {"weapon_uzi", "weapon_p99", "weapon_glock", "weapon_fiveseven"}
+    [1] = { "weapon_p99", "weapon_glock", "weapon_fiveseven", "weapon_beretta", "weapon_mateba", "weapon_hk_usp"},
+    [2] = { "weapon_uzi", "weapon_scorpian", "weapon_p220"}
 }
 
 local extraItems = {
@@ -69,15 +68,12 @@ function ffa.PlayerSpawn2(ply)
     ply:SetModel(tdm.models[math.random(#tdm.models)])
     ply:SetPlayerColor(Vector(0, 1, 0.051))
 
-    local roundDmType = math.random(1, 4)
+    local roundDmType = math.random(1, 2)
     local primaryWeapon = primaryWeapons[roundDmType][math.random(#primaryWeapons[roundDmType])]
     ply:Give(primaryWeapon)
 
-
-    if roundDmType == 2 then
-        local secondaryWeapon = secondaryWeapons[2][math.random(#secondaryWeapons[2])]
-        ply:Give(secondaryWeapon)
-    end
+    local secondaryWeapon = secondaryWeapons[roundDmType][math.random(#secondaryWeapons[roundDmType])]
+    ply:Give(secondaryWeapon)
 
 
     ply:Give(extraItems["knife"])
@@ -87,14 +83,13 @@ function ffa.PlayerSpawn2(ply)
     ply:Give(extraItems["radar"])
 
 
-    if roundDmType == 2 or roundDmType == 4 then
+    if roundDmType == 1 or roundDmType == 2 then
         ply:Give(extraItems["grenade"])
     end
 
-    if roundDmType == 4 then
+    if roundDmType == 1 then
         ply:Give(extraItems["molotov"])
     end
-
 
     giveAmmoForWeapons(ply)
 
@@ -102,8 +97,6 @@ function ffa.PlayerSpawn2(ply)
     
     ply:Give("weapon_hands")
 end
-
-
 
 function ffa.RoundEndCheck()
     local winner = nil
@@ -187,9 +180,9 @@ function ffa.HandlePlayerDeath(victim, inflictor, attacker)
         if IsValid(victim) and victim:Team() ~= 1002 and roundActiveName == "ffa" and victim:Alive() == false then
             --victim:Spawn()
 
-            --ffa.PlayerSpawn2(victim)
+            ffa.PlayerSpawn2(victim)
 
-           	if victim:Alive() then victim:KillSilent() end
+           	--if victim:Alive() then victim:KillSilent() end
 
 		    if func then func(victim) end
 		
@@ -209,7 +202,7 @@ function ffa.HandlePlayerDeath(victim, inflictor, attacker)
 				    table.remove(aviable, key)
 
                     timer.Simple(3, function()
-                        table.add(aviable, key)
+                        table.insert(aviable, point)
                     end)
 			    end
 		    end

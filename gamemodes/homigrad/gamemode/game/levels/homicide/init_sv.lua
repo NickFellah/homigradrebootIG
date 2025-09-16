@@ -244,11 +244,11 @@ function homicide.StartRoundSV()
     roundTimeStart  = CurTime()
     roundTime       = math.min(math.max(math.ceil(#player.GetAll() / 2), 1) * 45, 330)
 
-    if game.GetMap() == "gm_freeway_spacetunnel" then
+    --[[if game.GetMap() == "gm_freeway_spacetunnel" then
         RunConsoleCommand("sv_gravity", "300")
     else
         RunConsoleCommand("sv_gravity", "600")
-    end
+    end]]
 
     if homicide.roundType == 3 then
         roundTime = roundTime * 1.25
@@ -459,7 +459,7 @@ local empty = {}
 
 -- >>> MODIFY: do not hand out "hands" during prep <<<
 function homicide.PlayerSpawn2(ply,teamID)
-    local teamTbl = homicide[homicide.teamEncoder[teamID]]
+    local teadmTbl = homicide[homicide.teamEncoder[teamID]]
     local color = teamID == 1 and Color(math.random(55,165),math.random(55,165),math.random(55,165)) or teamTbl[2]
 
     EasyAppearance.SetAppearance( ply )
@@ -468,7 +468,9 @@ function homicide.PlayerSpawn2(ply,teamID)
     -- During prep, no weapons at all:
     if homicide.inPrep then
         ply:StripWeapons()
+        print("Stripped Weapons From Player: " .. ply:Nick())
     else
+        print("Gave Hands For Player: " .. ply:Nick())
         ply:Give("weapon_hands")
     end
 
