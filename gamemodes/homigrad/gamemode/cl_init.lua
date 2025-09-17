@@ -372,7 +372,7 @@ HGSub.themes = {
 local HGSub_FontCache = {}
 local function HGSub_GetFontName(themeKey)
     local scale = math.Clamp(ScrH() / 1080, 0.75, 1)
-    local size  = math.floor(84 * scale)  -- 3x
+    local size  = math.floor(28 * scale)  -- 3x
     local theme = HGSub.themes[themeKey] or HGSub.themes.dark
     local face  = theme.fontFace or "Trebuchet MS"
     local key   = string.format("HG_Subtitle_%s_%d", themeKey, size)
@@ -571,6 +571,9 @@ end)
 --   hg_displaysubtitle 0   (hide all)
 --   hg_displaysubtitle 1   (show again)
 -- =======================================
+
+
+
 
 
 
