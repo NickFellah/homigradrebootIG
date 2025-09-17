@@ -118,7 +118,7 @@ end
 
 -- Round type and sound configurations
 local roundTypes = {"Standard"}
-local roundSound = {"snd_jack_hmcd_disaster.mp3"}
+local roundSound = {"music/homicide.mp3"}
 
 local DescCT = {
     [1] = "You are armed with equipment to find the traitors.",
