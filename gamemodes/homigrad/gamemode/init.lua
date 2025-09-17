@@ -232,7 +232,7 @@ local function PlayerCanJoinTeam(ply,teamID)
 	local favorT,count = NeedAutoBalance(addT,addCT)
 
 	if count and ((teamID == 1 and favorT) or (teamID == 2 and not favorT)) then
-		self:GetOwner():ConCommand("hg_subtitle 'Team is full.', dark")
+		ply:ConCommand("hg_subtitle 'Team is full.', dark")
 
 		return false
 	end

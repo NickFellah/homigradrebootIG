@@ -1,20 +1,20 @@
-table.insert(LevelList,"tdm")
+table.insert(LevelList, "tdm")
+
 tdm = {}
 tdm.Name = "Team Deathmatch"
 
 local models = {}
 
-for i = 1,9 do table.insert(models,"models/player/group01/male_0" .. i .. ".mdl") end
+for i = 1, 9 do 
+	table.insert(models,"models/player/group01/male_0" .. i .. ".mdl")
+end
 
-for i = 1,6 do table.insert(models,"models/player/group01/female_0" .. i .. ".mdl") end
-
---table.insert(models,"models/player/group02/male_02.mdl")
---table.insert(models,"models/player/group02/male_06.mdl")
---table.insert(models,"models/player/group02/male_08.mdl")
-
---for i = 1,9 do table.insert(models,"models/player/group01/male_0" .. i .. ".mdl") end
+for i = 1, 6 do 
+	table.insert(models,"models/player/group01/female_0" .. i .. ".mdl") 
+end
 
 tdm.models = models
+
 tdm.red = {
 	"Red",Color(255,75,75),
 	weapons = {"weapon_binokle","weapon_radio","weapon_gurkha","weapon_hands","med_band_big","med_band_small","medkit","painkiller"},
@@ -40,8 +40,8 @@ tdm.teamEncoder = {
 function tdm.StartRound()
 	game.CleanUpMap(false)
 
-	team.SetColor(1,tdm.red[2])
-	team.SetColor(2,tdm.blue[2])
+	team.SetColor(1, tdm.red[2])
+	team.SetColor(2, tdm.blue[2])
 
 	if CLIENT then return end
 
@@ -50,20 +50,18 @@ end
 
 if SERVER then return end
 
-local colorRed = Color(255,0,0)
-
 function tdm.GetTeamName(ply)
-	local game = TableRound()
-	local team = game.teamEncoder[ply:Team()]
+	local round = TableRound()
+	local tm = round.teamEncoder[ply:Team()]
 
-	if team then
-		team = game[team]
+	if tm then
+		tm = round[tm]
 
-		return team[1],team[2]
+		return tm[1], tm[2]
 	end
 end
 
-function tdm.ChangeValue(oldName,value)
+function tdm.ChangeValue(oldName, value)
 	local oldValue = tdm[oldName]
 
 	if oldValue ~= value then

@@ -416,25 +416,22 @@ hook.Add("PlayerSpawn","z",function(ply)
 end)
 
 hook.Add("PlayerSpawn","resetfakebody",function(ply)
-    local ragdoll = ply:GetNWEntity("Ragdoll")
-    ply:AddEFlags(EFL_NO_DAMAGE_FORCES)
+	local ragdoll = ply:GetNWEntity("Ragdoll")
+	ply:AddEFlags(EFL_NO_DAMAGE_FORCES)
 
-    ply:SetDuckSpeed(0.3)
-    ply:SetUnDuckSpeed(0.3)
-    
-    ply.slots = {}
-    if ply.UsersInventory ~= nil then
-        for plys,bool in pairs(ply.UsersInventory) do
-            ply.UsersInventory[plys] = nil
-            send(plys,lootEnt,true)
-        end
-    end
-
-    if IsValid(ragdoll) then -- TODO: check if any items are on the ragdoll
-		ragdoll:Remove()
+	ply:SetDuckSpeed(0.3)
+	ply:SetUnDuckSpeed(0.3)
+	
+	ply.slots = {}
+	if ply.UsersInventory ~= nil then
+		for plys,bool in pairs(ply.UsersInventory) do
+			ply.UsersInventory[plys] = nil
+			send(plys,lootEnt,true)
+		end
 	end
-    
-    ply:SetNWEntity("Ragdoll",NULL)
+	if IsValid(ragdoll) then ragdoll:Remove() end
+	
+	ply:SetNWEntity("Ragdoll",NULL)
 end)
 
 util.AddNetworkString("Unload")
@@ -740,12 +737,14 @@ function PlayerMeta:CreateRagdoll(attacker, dmginfo, force)
 
 	for id,info in pairs(self.EZarmor.items) do
 		local ent = CreateArmor(rag,info)
-		ent.armorID = id
-		ent.ragdoll = rag
-		ent.Owner = self
-		armors[id] = ent
+		if IsValid(ent) then
+			ent.armorID = id
+			ent.ragdoll = rag
+			ent.Owner = self
+			armors[id] = ent
 
-		ent:CallOnRemove("Fake",Remove,self)
+			ent:CallOnRemove("Fake",Remove,self)
+		end
 	end
 
 	if IsValid(self.wep) then
@@ -790,8 +789,9 @@ end)
 hook.Add("JMod Armor Equip","Fake",function(ply,slot,item,drop)
 	local fake = ply:GetNWEntity("Ragdoll")
 	if not IsValid(fake) then return end
-
+	
 	local ent = CreateArmor(fake,item)
+	if not IsValid(ent) then print("ent == nil / line 794 / sv_fake.lua") return end
 	ent.armorID = slot.id
 	ent.Owner = ply
 	fake.armors[slot.id] = ent
@@ -943,15 +943,14 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 							ply:ChatPrint("Ropes Left: "..RopeCount - 1)
 						end
 						if (rag.IsWeld or 0) > 0 then
-							--ply:ChatPrint("")
-							ply:ConCommand("hg_subtitle 'You have been restrained. You can press Space + G to try to break free.', black")
+							ply:ChatPrint("You have been restrained. You can press Space + G to try to break free")
 							ply.Bloodlosing = ply.Bloodlosing + 10
 							ply.pain = ply.pain + 20
 						elseif (not rag.IsWeld or 0) == 0 then
-							ply:ConCommand("hg_subtitle 'You have broken free.', black")
+							ply:ChatPrint("You have broken free.")
 						end
 					else
-						ply:ConCommand("hg_subtitle 'You have broken free.', black")
+						ply:ChatPrint("You have broken free.")
 					end
 					Ropes[1].Constraint:Remove()
 					rag:EmitSound("snd_jack_hmcd_ducttape.wav",90,50,0.5,CHAN_AUTO)
@@ -1105,9 +1104,13 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 				}
 
 				local trace = util.TraceHull(traceinfo)
-				if(trace.Hit and !trace.HitSky)then
-					if !trace.Entity:IsWeapon() then					
-						local cons = constraint.Weld(rag,trace.Entity,bone,trace.PhysicsBone,0,false,false)
+				if trace.Hit and not trace.HitSky then
+					local ent = trace.Entity
+
+					if not ent:IsWeapon() then
+						if ent:IsPlayer() then Faking(ent) end
+
+						local cons = constraint.Weld(rag, ent, bone, trace.PhysicsBone, 0, false, false)
 						if(IsValid(cons))then
 							rag.ZacConsLH=cons
 
@@ -1121,7 +1124,7 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 							rag:ManipulateBoneAngles(rag:LookupBone("ValveBiped.Bip01_L_Finger2"), Angle(0,-30,0), true)			
 						end
 					else
-						ply:PickupWeapon(trace.Entity)
+						ply:PickupWeapon(ent)
 					end
 				end
 			end
@@ -1151,9 +1154,13 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 				}
 
 				local trace = util.TraceHull(traceinfo)
-				if(trace.Hit and !trace.HitSky)then
-					if !trace.Entity:IsWeapon() then					
-						local cons = constraint.Weld(rag,trace.Entity,bone,trace.PhysicsBone,0,false,false)
+				if trace.Hit and not trace.HitSky then
+					local ent = trace.Entity
+
+					if not ent:IsWeapon() then
+						if ent:IsPlayer() then Faking(ent) end
+
+						local cons = constraint.Weld(rag, ent, bone, trace.PhysicsBone, 0, false, false)
 						if(IsValid(cons))then
 							ply:SetNWBool("rhon", true)
 							
@@ -1165,7 +1172,7 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 							rag.ZacConsRH=cons
 						end
 					else
-						ply:PickupWeapon(trace.Entity)
+						ply:PickupWeapon(ent)
 					end
 				end
 			end
@@ -1382,24 +1389,3 @@ hook.Add("Player Think","holdentity",function(ply,time)
 
 	end--]]
 end)
-
---[[hook.Add("PlayerSpawn","resetfakebody",function(ply) -- We already did this??
-    local ragdoll = ply:GetNWEntity("Ragdoll")
-    ply:AddEFlags(EFL_NO_DAMAGE_FORCES)
-
-    ply:SetDuckSpeed(0.3)
-    ply:SetUnDuckSpeed(0.3)
-    
-    ply.slots = {}
-    if ply.UsersInventory ~= nil then
-        for plys,bool in pairs(ply.UsersInventory) do
-            ply.UsersInventory[plys] = nil
-            send(plys,lootEnt,true)
-        end
-    end
-    if IsValid(ragdoll) then -- check if any items are on the ragdoll
-		ragdoll:Remove() 
-	end
-    
-    ply:SetNWEntity("Ragdoll",NULL)
-end)]]

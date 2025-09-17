@@ -610,7 +610,7 @@ function Menu.Setup()
 				"JMod_HazMat",
 				"zombine",
 				"skeleton",
-				"Creeper Girl",
+				"Creeper Girl"
 			}
 
 			-- Actually the worst code I have ever had to deal with.

@@ -43,6 +43,7 @@ local util_Decal = util.Decal
 util.AddNetworkString("info_blood")
 
 function homigradPulse(ply)
+	if not ply.Blood or not ply then return end
 	local heartstop = (ply.Blood + (ply.CPR or 0) + (math.min(ply.adrenaline * 500,1000) or 0)) < 2000
 	heartstop = ply.organs["heart"] == 0 or heartstop
 	heartstop = ply.o2 <= 0 and true or heartstop

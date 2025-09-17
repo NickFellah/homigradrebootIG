@@ -28,7 +28,7 @@ surface.CreateFont("HomigradFontBig",{
 })
 
 hook.Add("HUDPaint","PainEffect",function()
-    if not LocalPlayer():Alive() or LocalPlayer():Team() == 1002 then return end
+    if not LocalPlayer():Alive() --[[or LocalPlayer():Team() == 1002]] then return end
 
     local w,h = ScrW(),ScrH()
     k = LerpFT(0.1,k,math_Clamp(pain / 500,0,15))
@@ -37,8 +37,9 @@ hook.Add("HUDPaint","PainEffect",function()
       
     local ply = LocalPlayer()
 
-    if ply:GetNWInt("unconscious") and ply:Alive() and ply:Team() ~= TEAM_SPECTATOR then
-        draw.DrawText("You are currently unconscious.", "HomigradFontNotify", ScrW() / 2, ScrH() / 2.1,
+    if ply:GetNWInt("unconscious") and ply:Alive() --[[and ply:Team() ~= TEAM_SPECTATOR ]]then
+        --if ply:Team() ~= TEAM_SPECTATOR then
+            draw.DrawText("You are currently unconscious.", "HomigradFontNotify", ScrW() / 2, ScrH() / 2.1,
             colwhite, TEXT_ALIGN_CENTER)
 
         if pain and pain > 500 then
@@ -50,7 +51,20 @@ hook.Add("HUDPaint","PainEffect",function()
             draw.DrawText("You have lost too much blood and have gone comatose!\nIf you are bleeding, your only hope is another person's help.", "HomigradFontSmall",
                 ScrW() / 2, ScrH() / 1.8,
                 colred, TEXT_ALIGN_CENTER)
-        end
+        elseif ply.heartstop then
+            draw.DrawText("Your heart stopped working! No recovering from this...", "HomigradFontSmall",
+                ScrW() / 2, ScrH() / 1.8,
+                colred, TEXT_ALIGN_CENTER)
+            end
+        --[[else
+            draw.DrawText("You are currently unconscious.", "HomigradFontNotify", ScrW() / 2, ScrH() / 2.1,
+            colwhite, TEXT_ALIGN_CENTER)
+
+            draw.DrawText("Admin got rekt, your Up In Like: "..
+                math.floor(((pain - 500) / 20) + 1) .. " second(s) though.", "HomigradFontSmall",
+                ScrW() / 2, ScrH() / 1.8,
+                colred, TEXT_ALIGN_CENTER)   
+        end]]
     end
 end)
 
