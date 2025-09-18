@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "XM1014"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "A powerful auto-shotgun."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

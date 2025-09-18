@@ -2,7 +2,7 @@ if engine.ActiveGamemode() == "homigrad" then
 SWEP.Base = "weapon_hg_melee_base"
 
 SWEP.PrintName = "Sledgehammer"
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 SWEP.Instructions = "The perfect tool to cave heads in."
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true

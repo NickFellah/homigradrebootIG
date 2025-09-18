@@ -3,7 +3,7 @@ SWEP.Base = 'salat_base' -- base
 
 SWEP.PrintName 				= "TAR-21"
 SWEP.Instructions			= "A military grade assault rifle."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "Remington 870"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "About as iconic as the pump action shotgun."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

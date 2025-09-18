@@ -2,7 +2,7 @@ if engine.ActiveGamemode() == "homigrad" then
 
 SWEP.PrintName = "Police Baton"
 SWEP.Instructions = "There's no such thing as excessive force."
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true

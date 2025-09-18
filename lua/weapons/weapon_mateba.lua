@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "Mateba Revolver"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "A powerful revolver."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon			= "pwb2/vgui/weapons/matebahomeprotection"
 
 SWEP.Spawnable 				= true

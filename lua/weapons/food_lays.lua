@@ -5,7 +5,7 @@ AddCSLuaFile()
 SWEP.PrintName = "Packet of Chips"
 SWEP.Author = "Homigrad"
 SWEP.Purpose = "Ew... Salt and Vinegar..."
-SWEP.Category = "Food"
+SWEP.Category = "[HG] Food"
 
 SWEP.Slot = 3
 SWEP.SlotPos = 3

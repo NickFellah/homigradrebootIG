@@ -3,7 +3,7 @@ SWEP.Base = "weapon_hg_granade_base"
 SWEP.PrintName = "Molotov"
 SWEP.Author = "Homigrad"
 SWEP.Instructions = "Came included with your anarchist kit."
-SWEP.Category = "Grenades"
+SWEP.Category = "[HG] Throwables"
 
 SWEP.Slot = 4
 SWEP.SlotPos = 2

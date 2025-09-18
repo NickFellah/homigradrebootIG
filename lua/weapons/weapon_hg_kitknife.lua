@@ -2,7 +2,7 @@ if engine.ActiveGamemode() == "homigrad" then
 SWEP.Base = "weapon_hg_melee_base"
 
 SWEP.PrintName = "Kitchen Knife"
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 SWEP.Instructions = "Sharpened to perfection."
 
 SWEP.Spawnable= true

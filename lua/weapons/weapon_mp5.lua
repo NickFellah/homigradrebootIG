@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "HK MP5a3"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Despite the name, not similar at all to it's brothers; the MP3 and MP4."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

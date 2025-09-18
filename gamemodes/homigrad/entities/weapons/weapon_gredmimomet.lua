@@ -3,7 +3,7 @@ SWEP.Base                   = "weapon_base"
 SWEP.PrintName 				= "Mortar Installer"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Allows you to place down a mortar"
-SWEP.Category 				= "Miscellaneous"
+SWEP.Category 				= "[HG] Special"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

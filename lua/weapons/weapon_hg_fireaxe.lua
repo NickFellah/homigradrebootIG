@@ -2,7 +2,7 @@ if engine.ActiveGamemode() == "homigrad" then
 SWEP.Base = "weapon_hg_melee_base"
 
 SWEP.PrintName = "Fire Axe"
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 SWEP.Instructions = "It's hip to be square!"
 
 SWEP.Spawnable= true

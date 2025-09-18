@@ -2,7 +2,7 @@ if engine.ActiveGamemode() == "homigrad" then
 
 SWEP.PrintName = "Ka-Bar USMC Knife"
 SWEP.Instructions = "A great survival knife that has withstood the test of time & combat."
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true

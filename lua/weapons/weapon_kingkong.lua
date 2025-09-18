@@ -4,7 +4,7 @@ AddCSLuaFile()
 SWEP.PrintName = "KingKong"
 SWEP.Author = "WhangaTy"
 SWEP.Purpose = "Twisted Ah Fingers"
-
+SWEP.Category = "[HG] Special"
 SWEP.Slot = 0
 SWEP.SlotPos = 4
 

@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "AR-15"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Yep, that's an Assualt Rifle"
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon			= "pwb2/vgui/weapons/m4a1"
 
 SWEP.Spawnable 				= true

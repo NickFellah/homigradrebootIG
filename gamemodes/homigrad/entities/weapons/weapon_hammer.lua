@@ -3,7 +3,7 @@ SWEP.Base                   = "weapon_base"
 SWEP.PrintName 				= "Hammer"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Used to quickly weld & barricade."
-SWEP.Category 				= "Miscellaneous"
+SWEP.Category 				= "[HG] Melee"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

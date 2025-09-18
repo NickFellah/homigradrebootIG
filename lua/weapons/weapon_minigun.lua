@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "Minigun"
 SWEP.Author 				= "Admin"
 SWEP.Instructions			= "If you're reading this, an admin was very stupid or very kind to give this to you."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Special"
 SWEP.WepSelectIcon			= "pwb/sprites/m134"
 
 SWEP.Spawnable 				= true

@@ -168,6 +168,7 @@ SWEP.Instructions = "Left Click to Ready Fists/Attack.\nRight click to block/dra
 SWEP.Spawnable = true
 SWEP.AdminOnly = true
 SWEP.HoldType = "normal"
+SWEP.Category = "[HG] Special"
 SWEP.ViewModel = "models/weapons/c_arms_citizen.mdl"
 SWEP.WorldModel = "models/props_junk/cardboard_box004a.mdl"
 SWEP.UseHands = true

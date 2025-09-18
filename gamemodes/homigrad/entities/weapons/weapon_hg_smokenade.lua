@@ -3,7 +3,7 @@ SWEP.Base = "weapon_hg_granade_base"
 SWEP.PrintName = "Smoke Grenade"
 SWEP.Author = "Homigrad"
 SWEP.Instructions = "Used to quickly create cover."
-SWEP.Category = "Grenades"
+SWEP.Category = "[HG] Throwables"
 
 SWEP.Slot = 4
 SWEP.SlotPos = 2

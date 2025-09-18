@@ -3,7 +3,7 @@ SWEP.Base                   = "weapon_base"
 SWEP.PrintName 				= "Pepperspray"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Blinds an enemy when constantly applied."
-SWEP.Category 				= "Miscellaneous"
+SWEP.Category               = "[HG] Special"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

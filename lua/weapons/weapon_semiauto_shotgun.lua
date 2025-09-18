@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "Semi-Automatic Shotgun"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "I think I saw this in a movie once?"
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon			= "entities/ent_jack_gmod_ezweapon_sas"
 
 SWEP.Spawnable 				= true

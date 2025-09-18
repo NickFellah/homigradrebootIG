@@ -2,11 +2,11 @@
 SWEP.ZombieOnly = true
 SWEP.IsMelee = true
 
-SWEP.PrintName = "Zombie"
+SWEP.PrintName = "Zombie Hands"
 
 SWEP.ViewModel = Model("models/Weapons/v_zombiearms.mdl")
 SWEP.WorldModel = ""
-
+SWEP.Category = "[HG] Special"
 SWEP.MeleeDelay = 0.74
 SWEP.MeleeReach = 48
 SWEP.MeleeSize = 4.5 --1.5

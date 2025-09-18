@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 
 SWEP.PrintName 				= "IMI Micro Uzi"
 SWEP.Instructions			= "This a lil' something for you, you lil bi-atch!"
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

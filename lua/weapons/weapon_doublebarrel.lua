@@ -3,8 +3,8 @@ SWEP.Base = 'salat_base' -- base
 
 SWEP.PrintName 				= "Double Barrel Sawed Off"
 SWEP.Author 				= "Homigrad"
-SWEP.Instructions			= "Someone in a fucking barn and with a chainsaw did it."
-SWEP.Category 				= "Weapon"
+SWEP.Instructions			= "God damn farmer, I called it too!"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon			= "pwb2/vgui/weapons/m4super90"
 
 SWEP.Spawnable 				= true

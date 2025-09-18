@@ -5,7 +5,7 @@ AddCSLuaFile()
 SWEP.PrintName = "Can of Pineapples"
 SWEP.Author = "Homigrad"
 SWEP.Purpose = "Developer Note: This is called food_spongebob_home in the code"
-SWEP.Category = "Food"
+SWEP.Category = "[HG] Food"
 
 SWEP.Slot = 3
 SWEP.SlotPos = 3

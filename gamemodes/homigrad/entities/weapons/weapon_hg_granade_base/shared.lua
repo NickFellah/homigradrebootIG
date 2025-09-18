@@ -1,8 +1,8 @@
 SWEP.Base = "weapon_base"
 
-SWEP.PrintName = "Base Garanata"
-SWEP.Author = "sadsalat"
+SWEP.PrintName = "Base Grenade"
 SWEP.Purpose = "Бах Бам Бум, Бадабум!"
+SWEP.Category = "[HG] Special"
 
 SWEP.Slot = 4
 SWEP.SlotPos = 0

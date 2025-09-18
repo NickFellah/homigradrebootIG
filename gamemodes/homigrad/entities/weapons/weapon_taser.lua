@@ -5,7 +5,7 @@ SWEP.Instructions = "Drops a target to the ground immediately. \n(mostly) Non-le
 SWEP.Slot = 2
 SWEP.SlotPos = 4
 SWEP.Spawnable = true
-SWEP.Category = "Miscellaneous"
+SWEP.Category = "[HG] Special"
 
 SWEP.ViewModel = "models/realistic_police/taser/w_taser.mdl"
 SWEP.WorldModel = "models/realistic_police/taser/w_taser.mdl"

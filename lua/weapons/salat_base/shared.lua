@@ -13,7 +13,7 @@ SWEP.Base = 'weapon_base' -- base
 SWEP.PrintName 				= "salat_base"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= ""
-SWEP.Category 				= "Other"
+SWEP.Category 				= "[HG] Special"
 SWEP.WepSelectIcon			= ""
 
 SWEP.Spawnable 				= false

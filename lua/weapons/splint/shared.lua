@@ -8,7 +8,7 @@ SWEP.Author = "Homigrad"
 SWEP.Instructions = "Instantly heals one broken limb, with legs being prioritised."
 
 SWEP.Spawnable = true
-SWEP.Category = "Medical"
+SWEP.Category = "[HG] Medical"
 
 SWEP.Slot = 3
 SWEP.SlotPos = 3

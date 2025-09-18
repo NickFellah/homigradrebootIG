@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "M9 Beretta"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "An iconic pistol. Can't go wrong with this one."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon			= "pwb/sprites/m9"
 
 SWEP.Spawnable 				= true

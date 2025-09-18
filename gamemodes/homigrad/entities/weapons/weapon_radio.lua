@@ -3,7 +3,7 @@ SWEP.Base                   = "weapon_base"
 SWEP.PrintName 				= "Two-Way Radio"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Used to communicate with your team!"
-SWEP.Category 				= "Miscellaneous"
+SWEP.Category               = "[HG] Special"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

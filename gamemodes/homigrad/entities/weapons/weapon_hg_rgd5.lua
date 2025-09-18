@@ -3,7 +3,7 @@ SWEP.Base = "weapon_hg_granade_base"
 SWEP.PrintName = "RGD-5"
 SWEP.Author = "Homigrad"
 SWEP.Instructions = "Soviet-era frag grenade."
-SWEP.Category = "Grenades"
+SWEP.Category = "[HG] Throwables"
 
 SWEP.Slot = 4
 SWEP.SlotPos = 2

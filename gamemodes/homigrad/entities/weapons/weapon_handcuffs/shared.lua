@@ -5,7 +5,7 @@ SWEP.Base = "medkit"
 SWEP.PrintName = "Zip-ties"
 SWEP.Author = "z"
 SWEP.Instructions = "Use on a ragdolled character to tie them up."
-SWEP.Category = "Miscellaneous"
+SWEP.Category = "[HG] Special"
 
 SWEP.Slot = 5
 SWEP.SlotPos = 3

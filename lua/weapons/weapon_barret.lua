@@ -4,7 +4,7 @@ SWEP.Base = 'weapon_scout' -- base
 SWEP.PrintName 				= "Barret"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "A very powerful sniper rifle."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

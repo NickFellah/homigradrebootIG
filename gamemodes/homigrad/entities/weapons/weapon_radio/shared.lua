@@ -2,10 +2,10 @@ AddCSLuaFile()
 
 SWEP.Base                   = "weapon_base"
 
-SWEP.PrintName 				= "Рация"
+SWEP.PrintName 				= "Radio"
 SWEP.Author 				= "DarkRP"
-SWEP.Instructions			= "Общение со своей командой"
-SWEP.Category 				= "Miscellaneous"
+SWEP.Instructions			= "Communicate With Your Team."
+SWEP.Category 				= "[HG] Special"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

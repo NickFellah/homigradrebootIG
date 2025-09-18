@@ -8,7 +8,7 @@ SWEP.Author = "Homigrad"
 SWEP.Instructions = "Perfect for a boo-boo!\nHeals small wounds that are lightly bleeding."
 
 SWEP.Spawnable = true
-SWEP.Category = "Medical"
+SWEP.Category = "[HG] Medical"
 
 SWEP.Slot = 3
 SWEP.SlotPos = 3

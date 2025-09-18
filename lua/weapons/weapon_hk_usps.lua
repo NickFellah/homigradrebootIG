@@ -5,7 +5,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "HK USP-S"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "One-tap extrodinaire"
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

@@ -3,7 +3,7 @@ SWEP.Base                   = "medkit"
 SWEP.PrintName 				= "Mobile Phone"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Hello? Yes, this is dog."
-SWEP.Category 				= "Miscellaneous"
+SWEP.Category               = "[HG] Special"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

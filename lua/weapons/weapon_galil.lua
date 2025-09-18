@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "Galil"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Powerful Assault Weapon"
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon			= "pwb2/vgui/weapons/ace23"
 
 SWEP.Spawnable 				= true

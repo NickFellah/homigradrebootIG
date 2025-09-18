@@ -166,6 +166,7 @@ SWEP.Purpose = ""
 SWEP.Instructions = "Left Click to Ready Fists/Attack.\nRight click to block/drag.\nR when engaged to disengage."
 SWEP.Spawnable = true
 SWEP.AdminOnly = false
+SWEP.Category = "[HG] Special"
 SWEP.HoldType = "normal"
 SWEP.ViewModel = "models/weapons/c_arms_citizen.mdl"
 SWEP.WorldModel = "models/props_junk/cardboard_box004a.mdl"

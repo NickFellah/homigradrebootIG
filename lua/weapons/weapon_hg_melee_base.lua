@@ -2,7 +2,7 @@ if engine.ActiveGamemode() == "homigrad" then
 
 SWEP.PrintName = "Bayonet"
 
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 
 SWEP.Spawnable= false
 SWEP.AdminSpawnable= false

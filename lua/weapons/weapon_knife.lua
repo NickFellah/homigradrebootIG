@@ -2,7 +2,7 @@ if engine.ActiveGamemode() == "homigrad" then
 
 SWEP.PrintName = "Knife"
 SWEP.Instructions = "A pretty nifty looking knife, although you probably dont want to be seen with it."
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true

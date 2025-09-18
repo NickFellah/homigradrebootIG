@@ -4,9 +4,9 @@ SWEP.Base = "medkit"
 
 SWEP.PrintName = "Mega Medkit"
 SWEP.Author = "First AID"
-SWEP.Instructions = "This is broken. Don't use."
+SWEP.Instructions = "We dont talk about whats in this. Kapeesh?"
 
-SWEP.Category = "Medical"
+SWEP.Category = "[HG] Medical"
 SWEP.Spawnable = true
 
 SWEP.Slot = 3

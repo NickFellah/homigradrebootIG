@@ -5,7 +5,7 @@ SWEP.Author = "Homigrad"
 SWEP.Instructions = "Sprinkle this on any item, or a ragdolled player."
 
 SWEP.Spawnable = true
-SWEP.Category = "Traitor Tools"
+SWEP.Category = "[HG] Traitor Tools"
 
 SWEP.Slot = 3
 SWEP.SlotPos = 0

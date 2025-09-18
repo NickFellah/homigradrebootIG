@@ -2,7 +2,7 @@ if engine.ActiveGamemode() == "homigrad" then
 SWEP.Base = "weapon_hg_melee_base"
 
 SWEP.PrintName = "Fubar"
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 SWEP.Instructions = "Perfect for breaking wood and other organic materials."
 
 SWEP.Spawnable= true

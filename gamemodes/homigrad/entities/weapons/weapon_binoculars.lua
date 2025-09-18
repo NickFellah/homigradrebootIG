@@ -2,8 +2,8 @@ SWEP.Base                   = "weapon_base"
 
 SWEP.PrintName 				= "Binoculars"
 SWEP.Author 				= "Homigrad"
-SWEP.Instructions			= "It's like you're really there!"
-SWEP.Category 				= "Miscellaneous"
+SWEP.Instructions			= "If not for my fat fingers!"
+SWEP.Category 				= "[HG] Special"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

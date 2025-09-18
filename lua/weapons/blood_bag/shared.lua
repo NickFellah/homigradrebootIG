@@ -8,7 +8,7 @@ SWEP.Author = "Homigrad"
 SWEP.Instructions = "500mL of blood. Hold Left Click to extract blood from a target, and right click to deposit blood into a target."
 
 SWEP.Spawnable = true
-SWEP.Category = "Medical"
+SWEP.Category = "[HG] Medical"
 
 SWEP.Slot = 3
 SWEP.SlotPos = 3

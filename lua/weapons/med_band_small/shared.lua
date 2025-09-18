@@ -8,7 +8,7 @@ SWEP.Author = "Homigrad"
 SWEP.Instructions = "Don't forget to apply pressure!\nHeals large wounds that are heavily bleeding."
 
 SWEP.Spawnable = true
-SWEP.Category = "Medical"
+SWEP.Category = "[HG] Medical"
 
 SWEP.Slot = 3
 SWEP.SlotPos = 3

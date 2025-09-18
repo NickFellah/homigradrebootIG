@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "AS-VAL"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Powerful Automatic Rifle"
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon			= "pwb2/vgui/weapons/asval"
 
 SWEP.Spawnable 				= true

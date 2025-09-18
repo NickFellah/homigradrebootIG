@@ -2,7 +2,7 @@ if engine.ActiveGamemode() == "homigrad" then
 SWEP.Base = "weapon_hg_melee_base"
 
 SWEP.PrintName = "Crowbar"
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 SWEP.Instructions = "Manufactured by Freeman Inc."
 
 SWEP.Spawnable= true

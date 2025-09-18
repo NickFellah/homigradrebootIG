@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "AK-74u"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "It's like an AK, but worse."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon			= "pwb/sprites/aks74u"
 
 SWEP.Spawnable 				= true

@@ -8,7 +8,7 @@ SWEP.Author = "Homigrad"
 SWEP.Instructions = "The Holy Grail of Medical Supplies.\nReduces Blood Loss, Pain, and fixes broken legs."
 
 SWEP.Spawnable = true
-SWEP.Category = "Medical"
+SWEP.Category = "[HG] Medical"
 
 SWEP.Slot = 3
 SWEP.SlotPos = 3

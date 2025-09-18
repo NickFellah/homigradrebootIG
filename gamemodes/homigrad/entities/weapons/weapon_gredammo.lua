@@ -3,7 +3,7 @@ SWEP.Base                   = "weapon_base"
 SWEP.PrintName 				= "Mortar Ammunition"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Mortar Ammo"
-SWEP.Category 				= "Miscellaneous"
+SWEP.Category 				= "[HG] Special"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

@@ -1,3 +1,9 @@
+-- disabled as its put into the init_tier_0_sh.lua file
+
+if true then return end
+
+--[[
+
 tdm.GetTeamName = tdm.GetTeamName
 
 local playsound = false
@@ -23,3 +29,5 @@ function tdm.HUDPaint_RoundLeft(white)
         return
     end
 end
+
+]]

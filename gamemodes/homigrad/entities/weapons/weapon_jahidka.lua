@@ -2,8 +2,8 @@ SWEP.Base                   = "weapon_base"
 
 SWEP.PrintName 				= "Suicide Vest"
 SWEP.Author 				= "Homigrad"
-SWEP.Instructions			= "Developer Tip: Give this to someone else instead."
-SWEP.Category 				= "Traitor Tools"
+SWEP.Instructions			= "Do NOT take your hand off that button. Better used in groups!"
+SWEP.Category               = "[HG] Traitor Tools"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

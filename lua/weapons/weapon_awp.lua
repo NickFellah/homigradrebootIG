@@ -4,7 +4,7 @@ SWEP.Base = 'weapon_scout' -- base
 SWEP.PrintName 				= "Awp"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "It's Just Like In Counter Strike! Wait A Minute..."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 
 SWEP.Spawnable 				= true
 SWEP.AdminOnly 				= false

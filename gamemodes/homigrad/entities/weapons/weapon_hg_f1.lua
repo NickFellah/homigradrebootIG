@@ -3,7 +3,7 @@ SWEP.Base = "weapon_hg_granade_base"
 SWEP.PrintName = "F1"
 SWEP.Author = "Homigrad"
 SWEP.Instructions = "If you're reading this, idk what this actually is."
-SWEP.Category = "Grenades"
+SWEP.Category = "[HG] Throwables"
 
 SWEP.Slot = 4
 SWEP.SlotPos = 2

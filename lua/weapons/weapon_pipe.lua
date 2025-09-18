@@ -2,7 +2,7 @@ if engine.ActiveGamemode() == "homigrad" then
 
 SWEP.PrintName = "Lead Pipe"
 SWEP.Instructions = "Taken off from a nearby wall."
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true

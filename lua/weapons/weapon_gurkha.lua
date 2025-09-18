@@ -6,7 +6,7 @@ end
 
 SWEP.PrintName = "Gurkha"
 SWEP.Instructions = "Harrison doesn't know what this is."
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true

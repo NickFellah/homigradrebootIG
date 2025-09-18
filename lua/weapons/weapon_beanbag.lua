@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "Remington870 Police"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "A non-lethal variant of a shotgun, used to fire beanbag rounds."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon			= "entities/weapon_insurgencymakarov.png"
 
 SWEP.Spawnable 				= true

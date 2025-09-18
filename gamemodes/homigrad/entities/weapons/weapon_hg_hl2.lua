@@ -3,7 +3,7 @@ SWEP.Base = "weapon_hg_granade_base"
 SWEP.PrintName = "Frag Grenade"
 SWEP.Author = "Homigrad"
 SWEP.Instructions = "Combine Manufactured Frag Grenade."
-SWEP.Category = "Grenades"
+SWEP.Category = "[HG] Throwables"
 
 SWEP.Slot = 4
 SWEP.SlotPos = 2

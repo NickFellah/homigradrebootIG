@@ -3,7 +3,7 @@ SWEP.Base = "weapon_hg_granade_base"
 SWEP.PrintName = "Flashbang"
 SWEP.Author = "Homigrad"
 SWEP.Instructions = "Creates a lasting blinding effect on any player who stares into the device while it detonates."
-SWEP.Category = "Grenades"
+SWEP.Category = "[HG] Throwables"
 
 SWEP.Slot = 4
 SWEP.SlotPos = 2

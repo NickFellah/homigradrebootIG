@@ -5,7 +5,7 @@ AddCSLuaFile()
 SWEP.PrintName = "Can of Fish"
 SWEP.Author = "Homigrad"
 SWEP.Purpose = "Now 3% Less Microplastics"
-SWEP.Category = "Food"
+SWEP.Category = "[HG] Food"
 
 SWEP.Slot = 3
 SWEP.SlotPos = 3

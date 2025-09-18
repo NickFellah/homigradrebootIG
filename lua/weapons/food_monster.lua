@@ -5,7 +5,7 @@ AddCSLuaFile()
 SWEP.PrintName = "Energy Drink"
 SWEP.Author = "Homigrad"
 SWEP.Purpose = "Gives you the zoomies!"
-SWEP.Category = "Food"
+SWEP.Category = "[HG] Food"
 
 SWEP.Slot = 3
 SWEP.SlotPos = 3

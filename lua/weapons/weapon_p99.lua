@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "P99"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "A small pistol with a smaller punch."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon			= "pwb/sprites/p99"
 
 SWEP.Spawnable 				= true

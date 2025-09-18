@@ -6,7 +6,7 @@ end
 
 SWEP.PrintName = "Tomahawk"
 SWEP.Instructions = "How many fools can you kill today?"
-SWEP.Category = "Melee"
+SWEP.Category = "[HG] Melee"
 
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true

@@ -4,11 +4,13 @@ AddCSLuaFile()
 SWEP.PrintName = "Zombie SWEP"
 SWEP.Author = "Kilburn, robotboy655, MaxOfS2D & Tenrys"
 SWEP.Purpose = "BRAAAAINS!!1!"
+SWEP.Category = "[HG] Special"
 
 SWEP.Slot = 0
 SWEP.SlotPos = 4
 
 SWEP.Spawnable = true
+SWEP.AdminOnly = false
 
 SWEP.ViewModel = Model( "models/weapons/c_zombieswep.mdl" )
 SWEP.WorldModel = ""

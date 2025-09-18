@@ -4,7 +4,7 @@ SWEP.Base = 'salat_base' -- base
 SWEP.PrintName 				= "SAR-2 Assault Rifle"
 SWEP.Author 				= "Homigrad"
 SWEP.Instructions			= "Combine Manufcatured Assault Rifle."
-SWEP.Category 				= "Weapon"
+SWEP.Category 				= "[HG] Weapons"
 SWEP.WepSelectIcon          = "pwb/sprites/akm"
 
 SWEP.Spawnable 				= true
