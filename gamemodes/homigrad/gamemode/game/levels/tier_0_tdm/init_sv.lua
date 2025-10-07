@@ -192,9 +192,9 @@ function tdm.GiveSwep(ply, togive, mulClip1)
     end
 end
 
-function tdm.PlayerSpawn(ply, teamID)
-	local teamTbl = tdm.teamEncoder[ply:Team()]
-	local color = teamTbl[2] or "blue"
+function tdm.PlayerSpawn2(ply,teamID)
+	local teamTbl = tdm[tdm.teamEncoder[teamID]]
+	local color = teamID or teamTbl[2]
 
 	-- Set the player's model to the custom model if available, otherwise use a random team model
     local customModel = GetPlayerModelBySteamID(ply:SteamID())
@@ -202,6 +202,7 @@ function tdm.PlayerSpawn(ply, teamID)
         ply:SetModel(customModel)
 		ply:SetPlayerColor(color:ToVector())
     else
+		print(ply)
         ply:SetModel(teamTbl.models[math.random(#teamTbl.models)])
 		ply:SetPlayerColor(color:ToVector())
     end

@@ -651,6 +651,7 @@ if SERVER then
 			if not tbl or not IsValid(tbl[1]) then heldents[i] = nil continue end
 			local ent,ply,dist,target,bone,pos = tbl[1],tbl[2],tbl[3],tbl[4],tbl[5],tbl[6]
 			local phys = ent:GetPhysicsObjectNum(bone)
+			if not IsValid(phys) then heldents[i] = nil continue end
 			local TargetPos = phys:GetPos()
 
 			if pos then
