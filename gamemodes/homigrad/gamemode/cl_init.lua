@@ -364,6 +364,11 @@ HGSub.themes = {
         bg        = Color(255, 103,  0,  120),
         text      = Color(255, 255,  255,  255), -- ~matches bg
         fontFace  = "Trebuchet MS"
+    },
+    green = {
+        bg        = Color(0, 126,  6,  185),
+        text      = Color(255, 255,  255,  255), -- ~matches bg
+        fontFace  = "Trebuchet MS"
     }
 }
 
