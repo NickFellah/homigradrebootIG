@@ -37,40 +37,6 @@ function infection.StartRoundSV(data)
 	tdm.SpawnCommand(team.GetPlayers(1),spawnsT)
 	tdm.SpawnCommand(team.GetPlayers(2),spawnsCT)
 
-	local seekers = team.GetPlayers(1)
-	local seekerSpawns = {}
-
-	for _, seeker in ipairs(seekers) do
-		if IsValid(seeker) then
-			seekerSpawns[seeker] = seeker:GetPos()
-			seeker:SetPos(Vector(0, 0, -99999))
-			seeker:SetNWBool("SeekerBlind", true)
-			seeker:ScreenFade(SCREENFADE.IN, Color(0, 0, 0, 255), 1, 15)
-			seeker:ConCommand("hg_subtitle 'You will be released in 15 seconds...', red")
-			seeker:ChatPrint("You will be released in 15 seconds...")
-		end
-	end
-	
-	timer.Simple(15, function()
-		if roundActiveName ~= "infection" then return end
-
-		for _, seeker in ipairs(seekers) do
-			if IsValid(seeker) then
-				local pos = seekerSpawns[seeker]
-				if pos then seeker:SetPos(pos) end
-				seeker:SetNWBool("SeekerBlind", false)
-				seeker:ScreenFade(SCREENFADE.PURGE, Color(0, 0, 0, 0), 1, 0)
-				seeker:ConCommand("hg_subtitle 'Go! Hunt down those Hiders!', green")
-			end
-		end
-
-		for _, ply in ipairs(team.GetPlayers(2)) do
-			if IsValid(ply) then
-				ply:ConCommand("hg_subtitle 'The seekers are now released! Run Or Hide!', red")
-			end
-		end
-	end)
-
     local team1Players = team.GetPlayers(1)
     if #team1Players > 0 then
         local firstPlayer = team1Players[1]
@@ -91,7 +57,15 @@ function infection.RoundEndCheck()
 		spawnsCT = tdm.SpawnsTwoCommand()
 		if not infection.police then
 			infection.police = true
-			PrintMessage(3,"Special Forces have arrived! Hiders can now escape through select points on the map.")
+
+			for _, ply in pairs(player.GetAll()) do
+				if ply:Team() == 2 and ply:Alive() then
+					ply:ConCommand("hg_subtitle 'Special Forces have arrived! Survivors can now escape through the exit points around the map.', green")
+				else
+					ply:ConCommand("hg_subtitle 'Special Forces have arrived! Stop the Survivors from escaping through the exit points.', red")
+				end
+			end
+			--PrintMessage(3,"Special Forces have arrived! Survivors can now escape through select points on the map.")
 
 			local aviable = ReadDataMap("spawnpointsct")
 
@@ -132,7 +106,7 @@ function infection.RoundEndCheck()
 
 					CTExit = CTExit + 1
 
-					PrintMessage(3,ply:GetName().." has escaped! "..(CTAlive - 1) .. " hiders remain.")
+					PrintMessage(3,ply:GetName().." has escaped! "..(CTAlive - 1) .. " survivors remain.")
 				end
 			end
 		end
@@ -161,12 +135,7 @@ function infection.PlayerSpawn2(ply,teamID)
 	tdm.GiveSwep(ply,teamTbl.main_weapon,teamID == 1 and 16 or 4)
 	tdm.GiveSwep(ply,teamTbl.secondary_weapon,teamID == 1 and 8 or 2)
 
-	if math.random(1,4) == 4 then ply:Give("weapon_per4ik") end
-	if math.random(1,8) == 8 then ply:Give("adrenaline") end
-	if math.random(1,7) == 7 then ply:Give("painkiller") end
-	if math.random(1,6) == 6 then ply:Give("medkit") end
-	if math.random(1,5) == 5 then ply:Give("med_band_big") end
-	if math.random(1,8) == 8 then ply:Give("morphine") end
+	if math.random(1,6) == 6 then ply:Give("megamedkit") end
 
 	if ply:IsUserGroup("sponsor") or ply:IsUserGroup("supporterplus") then
 		ply:Give("weapon_vape")
@@ -179,10 +148,12 @@ function infection.PlayerSpawn2(ply,teamID)
 	if math.random(1,5) == 5 then ply:Give("weapon_bat") end
 
     if teamID == 1 then
-        JMod.EZ_Equip_Armor(ply,"Medium-Helmet",color)
-        JMod.EZ_Equip_Armor(ply,"Light-Vest",color)
+		ply:SetColor(Color(78, 194, 0, 255))
+
+		ply:SelectWeapon("weapon_infector")
 	elseif teamID == 2 then
-		ply:SetPlayerColor(Color(math.random(160),math.random(160),math.random(160)):ToVector())
+		ply:SetColor(Color(255, 255, 255))
+		
     end
 	ply.allowFlashlights = false
 end

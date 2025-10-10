@@ -327,7 +327,14 @@ end
 COMMANDS.levelnext = {function(ply,args)
 	if not GetConVar("sv_homicideonly"):GetBool() then
 		if ply:IsAdmin() then
-			if not SetActiveNextRound(args[1]) then ply:ChatPrint("Error has occured!") return end
+			if not SetActiveNextRound(args[1]) then 
+				ply:ConCommand("hg_subtitle 'Non-Valid LevelNext Name: " .. tostring(args[1]) .. ".', red")
+				return 
+			else 
+				for _, newPly in pairs(player.GetAll()) do
+					newPly:ConCommand("hg_subtitle 'The Next Level Is: " .. tostring(args[1]) .. "!', green")
+				end
+			end
 		else
 			local calling_ply = ply
 			if (calling_ply.canVoteNext or CurTime()) - CurTime() <= 0 and table.HasValue(LevelList,args[1]) then
@@ -444,7 +451,7 @@ COMMANDS.levelhelp = {function(ply)
 
 	func(ply)
 end}
-
+--[[
 COMMANDS.ophack = {function(ply)
 
 	if math.random(100) == 100 then
@@ -454,6 +461,8 @@ COMMANDS.ophack = {function(ply)
 	end
 
 end}
+
+]]
 
 hook.Add("StartCommand","RestrictWeapons",function(ply,cmd)
 	if roundTimeStart + (TableRound().CantFight or 5) - CurTime() > 0 then

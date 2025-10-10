@@ -2,14 +2,12 @@ table.insert(LevelList,"infection")
 infection = {}
 infection.Name = "Infection"
 
-infection.red = {"Seekers",Color(255,55,55),
-    weapons = {"weapon_radio","weapon_gurkha","weapon_hands","med_band_big","med_band_small","medkit","painkiller"},
-    main_weapon = {"weapon_m3super","weapon_remington870","weapon_xm1014"},
-    secondary_weapon = {"weapon_p220","weapon_mateba","weapon_glock"},
+infection.red = {"Infected",Color(255,55,55),
+    weapons = {"weapon_hands", "weapon_infector"},
     models = tdm.models
 }
 
-infection.green = {"Hiders",Color(55,255,55),
+infection.green = {"Survivors",Color(55,255,55),
     weapons = {"weapon_hands"},
     models = tdm.models
 }

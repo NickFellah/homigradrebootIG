@@ -34,11 +34,11 @@ function infection.HUDPaint_RoundLeft(white2,time)
 
         surface.DrawText("Вы " .. name)]]--
         draw.DrawText( "You are on team: " .. name, "HomigradRoundFont", ScrW() / 2, ScrH() / 2, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
-        draw.DrawText( "Hide & Seek", "HomigradRoundFont", ScrW() / 2, ScrH() / 8, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
+        draw.DrawText( "Infection", "HomigradRoundFont", ScrW() / 2, ScrH() / 8, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
         --draw.DrawText( roundTypes[roundType], "HomigradRoundFont", ScrW() / 2, ScrH() / 5, Color( 55,55,155,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
 
         if lply:Team() == 1 then
-            draw.DrawText( "Find everyone who's hiding, and kill them before Special Forces arrive.", "HomigradRoundFont", ScrW() / 2, ScrH() / 1.2, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
+            draw.DrawText( "Find everyone who's hiding, and turn them infected before Special Forces arrive.", "HomigradRoundFont", ScrW() / 2, ScrH() / 1.2, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
         else
             draw.DrawText( "Hide until Special Forces arrive, and dash for the exit!", "HomigradRoundFont", ScrW() / 2, ScrH() / 1.2, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
 		end
@@ -76,7 +76,7 @@ function infection.HUDPaint_RoundLeft(white2,time)
 
 			--draw.SimpleText("Click Tab to see it again.","HomigradFont",ScrW() / 2,ScrH() - 100,white2,TEXT_ALIGN_CENTER)
 		else
-			draw.SimpleText("If you're seeing this, please ask the admins to spawn escape points!","HomigradFont",ScrW() / 2,ScrH() - 100,white2,TEXT_ALIGN_CENTER)
+			draw.SimpleText("If you're seeing this, please ask the admins to spawn escape points! All Hope Is Lost.","HomigradFont",ScrW() / 2,ScrH() - 100,white2,TEXT_ALIGN_CENTER)
 		end
 	end
 end

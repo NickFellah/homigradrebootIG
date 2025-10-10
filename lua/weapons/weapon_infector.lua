@@ -1,17 +1,16 @@
 
 AddCSLuaFile()
 
-SWEP.PrintName = "Freeman's Hands"
+SWEP.PrintName = "Infector's Hands"
 SWEP.Author = "WhangaTy"
-SWEP.Purpose = "The hands of Gordon Freeman. [test weapon]"
 SWEP.Category = "[HG] Special"
 SWEP.Slot = 0
 SWEP.SlotPos = 4
 
 SWEP.Spawnable = true
 
-SWEP.ViewModel = "models/weapons/c_arms_citizen.mdl"
-SWEP.WorldModel = "models/props_junk/cardboard_box004a.mdl"
+SWEP.ViewModel = "models/weapons/c_zombieswep.mdl"
+SWEP.WorldModel = ""
 SWEP.ViewModelFOV = 90
 SWEP.UseHands = true
 
@@ -37,6 +36,17 @@ local HitSound = Sound( "Flesh.ImpactHard" )
 function SWEP:Initialize()
 
 	self:SetHoldType( "normal" )
+	
+	self.ActivityTranslate[ ACT_MP_STAND_IDLE ]					= ACT_HL2MP_IDLE_ZOMBIE
+	self.ActivityTranslate[ ACT_MP_WALK ]						= ACT_HL2MP_WALK_ZOMBIE_01
+	self.ActivityTranslate[ ACT_MP_RUN ]						= ACT_HL2MP_RUN_ZOMBIE
+	self.ActivityTranslate[ ACT_MP_CROUCH_IDLE ]				= ACT_HL2MP_IDLE_CROUCH_ZOMBIE
+	self.ActivityTranslate[ ACT_MP_CROUCHWALK ]					= ACT_HL2MP_WALK_CROUCH_ZOMBIE_01
+	self.ActivityTranslate[ ACT_MP_ATTACK_STAND_PRIMARYFIRE ]	= ACT_GMOD_GESTURE_RANGE_ZOMBIE
+	self.ActivityTranslate[ ACT_MP_ATTACK_CROUCH_PRIMARYFIRE ]	= ACT_GMOD_GESTURE_RANGE_ZOMBIE
+	self.ActivityTranslate[ ACT_MP_JUMP ]						= ACT_ZOMBIE_LEAPING
+	self.ActivityTranslate[ ACT_RANGE_ATTACK1 ]					= ACT_GMOD_GESTURE_RANGE_ZOMBIE
+
 end
 
 function SWEP:SetupDataTables()
@@ -55,6 +65,16 @@ function SWEP:UpdateNextIdle()
 end
 
 function SWEP:PrimaryAttack( right )
+
+	self.Owner:SetAnimation( PLAYER_ATTACK1 )
+
+	local anim = "fists_left"
+	if ( right ) then anim = "fists_right" end
+	if ( self:GetCombo() >= 2 ) then
+		anim = "fists_uppercut"
+	end
+	
+	self:SendWeaponAnim( ACT_VM_PRIMARYATTACK )
 
 	self:EmitSound( SwingSound )
 
@@ -75,6 +95,8 @@ end
 local phys_pushscale = GetConVar( "phys_pushscale" )
 
 function SWEP:DealDamage() -- dont deal damage, just change thier pm and role
+
+	local anim = self:GetSequenceName(self.Owner:GetViewModel():GetSequence())
 
 	self.Owner:LagCompensation( true )
 
@@ -109,17 +131,42 @@ function SWEP:DealDamage() -- dont deal damage, just change thier pm and role
 	if ( SERVER && IsValid( tr.Entity ) --[[&& tr.Entity:IsNPC() || tr.Entity:IsPlayer()  || (tr.Entity:Health() > 0 )]] ) then
 		local attacker = self.Owner
 		if ( !IsValid( attacker ) ) then attacker = self end
-		
-		print(victimPly:GetModel())
 
-		local function turnToFreeman(turningPly)
-			if turningPly.roleT then print("Ply is already freeman, shit ass") return end
+		local function infectPly(turningPly)
+			if turningPly:Team() ~= 2 then print(turningPly:GetName().. " is already infected or police.") return end
+			turningPly.roleT = true
+			turningPly:SetTeam(1)
+			turningPly:StripWeapons()
+			turningPly:Give("weapon_hands")
+			turningPly:Give("weapon_infector")
 
-			turningPly:SetModel("")
+			turningPly:SelectWeapon("weapon_infector")
+
+			turningPly:SetHealth(150)
+			turningPly:SetMaxHealth(150)
+
+			turningPly:SetColor(Color(78, 194, 0, 255))
+
+			for _, ply in pairs(player.GetAll()) do
+				ply:ConCommand("hg_subtitle \"" ..victimPly:GetName().. " has been infected!\" red")
+			end
 		end
 
-		turnToFreeman(victimPly)
+		if victimPly:IsPlayer() and victimPly:Alive() and victimPly ~= self.Owner then
+			if victimPly:Team() ~= 3 then
+				infectPly(victimPly)
+			else
 
+				local dmginfo = DamageInfo()
+				dmginfo:SetAttacker( attacker )
+				dmginfo:SetInflictor( self )
+
+				dmginfo:SetDamageForce( self.Owner:GetForward() * 14910 * scale ) -- Yes we need those specific numbers
+				dmginfo:SetDamage(1000)
+				tr.Entity:TakeDamageInfo( dmginfo )
+			end
+		end
+		
 		SuppressHostEvents( NULL ) -- Let the breakable gibs spawn in multiplayer on client
 		SuppressHostEvents( self.Owner )
 
@@ -133,13 +180,21 @@ function SWEP:DealDamage() -- dont deal damage, just change thier pm and role
 		end
 	end
 
+	if ( SERVER ) then
+		if ( hit && anim != "fists_uppercut" ) then
+			self:SetCombo( self:GetCombo() + 1 )
+		else
+			self:SetCombo( 0 )
+		end
+	end
+
 	self.Owner:LagCompensation( false )
 
 end
 
 function SWEP:OnDrop()
 
-	self:Remove() -- You can't drop fists
+	self:Remove() -- You can't drop the infection item
 
 end
 
@@ -177,6 +232,8 @@ function SWEP:Think()
 	local idletime = self:GetNextIdle()
 
 	if ( idletime > 0 && CurTime() > idletime ) then
+
+		self:SendWeaponAnim( ACT_VM_IDLE )
 
 		self:UpdateNextIdle()
 
