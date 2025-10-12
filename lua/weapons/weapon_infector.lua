@@ -149,7 +149,11 @@ function SWEP:DealDamage() -- dont deal damage, just change thier pm and role
 
 			for _, ply in pairs(player.GetAll()) do
 				ply:ConCommand("hg_subtitle \"" ..victimPly:GetName().. " has been infected!\" red")
+				ply:EmitSound("ambient/machines/thumper_hit.wav", 90, 70, 1)
 			end
+			
+			turningPly:EmitSound("vo/npc/male01/pain0" ..math.random(1, 9).. ".wav", 100, 100, 1)
+			util.ScreenShake(turningPly:GetPos(), 10, 5, 2, 1000)
 		end
 
 		if victimPly:IsPlayer() and victimPly:Alive() and victimPly ~= self.Owner then

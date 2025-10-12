@@ -153,7 +153,6 @@ function infection.PlayerSpawn2(ply,teamID)
 		ply:SelectWeapon("weapon_infector")
 	elseif teamID == 2 then
 		ply:SetColor(Color(255, 255, 255))
-		
     end
 	ply.allowFlashlights = false
 end

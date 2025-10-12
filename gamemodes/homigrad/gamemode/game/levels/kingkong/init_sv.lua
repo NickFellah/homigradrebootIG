@@ -71,6 +71,40 @@ function kingkong.StartRoundSV()
         if math.random(1,8) == 8 then ply:Give("morphine") end
     end)
 
+    local kingkongs = team.GetPlayers(1)
+	local kingkongSpawns = {}
+
+	for _, kingkong in ipairs(kingkongs) do
+		if IsValid(kingkong) then
+			kingkongSpawns[kingkong] = kingkong:GetPos()
+			kingkong:SetPos(Vector(0, 0, -99999))
+			kingkong:SetNWBool("kingkongBlind", true)
+			kingkong:ScreenFade(SCREENFADE.IN, Color(0, 0, 0, 255), 1, 15)
+			kingkong:ConCommand("hg_subtitle 'You will be released in 10 seconds...', red")
+			kingkong:ChatPrint("You will be released in 10 seconds...")
+		end
+	end
+	
+	timer.Simple(15, function()
+		if roundActiveName ~= "kingkong" then return end
+
+		for _, kingkong in ipairs(kingkongs) do
+			if IsValid(kingkong) then
+				local pos = kingkongSpawns[kingkong]
+				if pos then kingkong:SetPos(pos) end
+				kingkong:SetNWBool("SeekerBlind", false)
+				kingkong:ScreenFade(SCREENFADE.PURGE, Color(0, 0, 0, 0), 1, 0)
+				kingkong:ConCommand("hg_subtitle 'Go! Hunt down those Explorers!', green")
+			end
+		end
+
+		for _, ply in ipairs(team.GetPlayers(2)) do
+			if IsValid(ply) then
+				ply:ConCommand("hg_subtitle 'Kingkong is now released! No Point In Running!', red")
+			end
+		end
+	end)
+
     tdm.SpawnCommand(kingkong.t,aviable2,function(ply)
         timer.Simple(1,function()
             ply.nopain = true
@@ -104,30 +138,33 @@ end
 function kingkong.EndRound(winner)
     PrintMessage(3,(winner == 1 and "No Remaining Survivors Left! KingKong Wins." or winner == 2 and "KingKong Was Defeated! Survivors Win." or "Time! Survivors Wins."))
 end
---self:GetOwner():EmitSound("NPC_BaseZombie.Moan"..math.random(4))
-local rageSound = Sound("npc/zombie/zombie_voice_idle5.wav"--[[..math.random(14)..".wav"]])
-
--- local rageSound = Sound("npc/zombie/zombie_alert2.wav"--[[..math.random(14)..".wav"]]) IDLE SOUNDS?
 
 util.AddNetworkString("PlayerActivatedRage")
 
+-- this code is very bad, i have no idea what i thinking, and am very sorry.
+-- future gamemodes are 100% going to be better and not as messy/ass as this
+
+-- whanga
+
 hook.Add("PlayerButtonDown", "CheckKeyPress", function(ply, button)
-    if ply:GetModel() == "models/vedatys/orangutan.mdl" and button == KEY_R and ply.abilityTimer == false and roundActiveName == "kingkong" and ply:Alive() then
+    if ply:GetModel() == "models/vedatys/orangutan.mdl" and button == KEY_R and roundActiveName == "kingkong" and ply:Alive() then
+        if ply.abilityTimer == true then ply:ConCommand("hg_Subtitle 'Please Wait For The Cooldown. Default: 20', red") return end
         -- activate the king kong ability
         ply.abilityTimer = true
-        ply:ChatPrint("ACTIVATED RAGE!")
+        ply:ConCommand("hg_Subtitle 'ACTIVATED RAGE!', green")
         ply:ConCommand("act zombie")
         ply.adrenaline = ply.adrenaline + 1
-        
-        sound.Play(rageSound,ply:GetPos(),75,100,0.5)
-        -- sound.Play("ambient/explosions/explode_4.wav", Vector(0,0,0))
+
+        ply:EmitSound("ambient/creatures/town_child_scream1.wav", 100, 90, 1)
 
         net.Start("PlayerActivatedRage")
         net.Send(ply)
             
         timer.Simple(20, function()
-            if lply:GetModel() == "models/vedatys/orangutan.mdl" then -- fuck me
-                draw.DrawText( "Press R To Activate Rage", "HomigradRoundFont", ScrW() / 2, ScrH() / 1.2, red, TEXT_ALIGN_CENTER )
+            if ply:GetModel() == "models/vedatys/orangutan.mdl" and roundActiveName == "kingkong" then -- fuck me
+                ply.abilityTimer = false
+                ply:ConCommand("hg_Subtitle 'Press R To Activate Rage', green")
+                --draw.DrawText( "Press R To Activate Rage", "HomigradRoundFont", ScrW() / 2, ScrH() / 1.2, red, TEXT_ALIGN_CENTER )
             end
         end)
     end

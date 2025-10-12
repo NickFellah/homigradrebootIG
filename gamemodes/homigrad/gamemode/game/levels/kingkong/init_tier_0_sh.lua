@@ -1,13 +1,18 @@
---table.insert(LevelList,"kingkong")
+table.insert(LevelList,"kingkong")
 kingkong = kingkong or {}
 kingkong.Name = "KingKong"
 
-kingkong.red = {"Survivor",Color(125,125,125),
+kingkong.red = {"KingKong",Color(255,0,0),
+    models = tdm.models
+}
+
+kingkong.green = {"Survivor",Color(55,255,55),
     models = tdm.models
 }
 
 kingkong.teamEncoder = {
-    [1] = "red"
+    [1] = "red",
+    [2] = "green"
 }
 
 kingkong.RoundRandomDefalut = 1

@@ -79,6 +79,7 @@ function StartRound()
 
 		ply:KillSilent()
 		ply:Freeze(true)
+		ply:SetColor(Color(255, 255, 255))
 	end
 
 	if SERVER then
@@ -274,7 +275,10 @@ local function donaterVoteLevelEnd(t,argv,calling_ply,args)
 	end
 
 	if winner == 1 then
-		PrintMessage(HUD_PRINTTALK,"Round has been voted to end.")
+		PrintMessage(HUD_PRINTTALK,"The Round has been voted to end.")
+		for _, newPly in pairs(player.GetAll()) do
+			newPly:ConCommand("hg_subtitle 'The Round has been voted to end.', green")
+		end
 		EndRound()
 	elseif winner == 2 then
 		PrintMessage(HUD_PRINTTALK,"Vote Failed! The round will continue.")
@@ -289,6 +293,9 @@ end
 COMMANDS.levelend = {function(ply,args)
 	if ply:IsAdmin() or ply:GetUserGroup("operator") then
 		EndRound()
+		for _, newPly in pairs(player.GetAll()) do
+			newPly:ConCommand("hg_subtitle 'The Round has been forced to end.', green")
+		end
 	else
 		local calling_ply = ply
 		if (calling_ply.canVoteNext or CurTime()) - CurTime() <= 0 then
@@ -331,14 +338,14 @@ COMMANDS.levelnext = {function(ply,args)
 				ply:ConCommand("hg_subtitle 'Non-Valid LevelNext Name: " .. tostring(args[1]) .. ".', red")
 				return 
 			else 
-				for _, newPly in pairs(player.GetAll()) do
-					newPly:ConCommand("hg_subtitle 'The Next Level Is: " .. tostring(args[1]) .. "!', green")
-				end
+				ply:ConCommand("hg_subtitle 'The Next Level Is: " .. tostring(TableRound(roundActiveNameNext).Name) .. "!', green")
+				--ply:ConCommand("hg_subtitle 'The Next Level Is: " .. tostring(args[1]) .. "!', green")
 			end
 		else
 			local calling_ply = ply
 			if (calling_ply.canVoteNext or CurTime()) - CurTime() <= 0 and table.HasValue(LevelList,args[1]) then
-				ulx.doVote( "Change the Gamemode next level to: " .. tostring(args[1]) .. "?", { "Yes","No" }, donaterVoteLevel, 15, _, _, argv, calling_ply, args)
+				--ulx.doVote( "Change the Gamemode next level to: " .. tostring(args[1]) .. "?", { "Yes","No" }, donaterVoteLevel, 15, _, _, argv, calling_ply, args)
+				ulx.doVote( "Change the Gamemode next level to: " .. tostring(TableRound(roundActiveNameNext).Name) .. "?", { "Yes","No" }, donaterVoteLevel, 15, _, _, argv, calling_ply, args)
 			end
 		end
 	else
