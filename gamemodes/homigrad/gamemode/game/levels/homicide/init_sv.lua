@@ -180,59 +180,66 @@ function TryAssignPolice(ply)
     end
 end
 
+-- Cop fix: cap to 10, shuffle selection, force other dead → spectator
 function SpawnPolicePlayers()
-    local aviable = ReadDataMap("spawnpointsct")
+    local points = ReadDataMap("spawnpointsct")
     local playsound = true
-
     local prePolicePlayers = PlayersDead(true)
-    
     if not prePolicePlayers or table.IsEmpty(prePolicePlayers) then return end
 
-    local ply = prePolicePlayers[1]
+    -- Fisher–Yates shuffle
+    for i = #prePolicePlayers, 2, -1 do
+        local j = math.random(i)
+        prePolicePlayers[i], prePolicePlayers[j] = prePolicePlayers[j], prePolicePlayers[i]
+    end
 
+    -- Cap cops to 10
+    local maxCops = 10
+    while #prePolicePlayers > maxCops do
+        table.remove(prePolicePlayers) -- remove from end
+    end
+
+    -- Force other dead, non-selected players into spectator
+    for _, plyAll in ipairs(player.GetAll()) do
+        if not table.HasValue(prePolicePlayers, plyAll) and not plyAll:Alive() then
+            plyAll:StripWeapons()
+            plyAll:KillSilent()
+            plyAll:Spectate(OBS_MODE_ROAMING)
+        end
+    end
+
+    local ply = prePolicePlayers[1]
     homicide.police = true
 
     timer.Simple(0, function()
         if homicide.roundType == 1 then
-            PrintMessage(3, "A SWAT Team has arrived.")
+            net.Start("hg_sendchat_simple")
+                net.WriteString("#hg.modes.team.swathere")
+            net.Broadcast()
         else
-            PrintMessage(3, "The Police have Arrived")
+            net.Start("hg_sendchat_simple")
+                net.WriteString("#hg.modes.team.policehere")
+            net.Broadcast()
         end
-        if playsound then
+
+        if playsound and IsValid(ply) then
             ply:EmitSound("police_arrive")
             playsound = false
         end
     end)
 
-    tdm.SpawnCommand(prePolicePlayers, aviable, function(ply)
+    tdm.SpawnCommand(prePolicePlayers, points, function(ply)
         timer.Simple(0, function()
-            if homicide.roundType == 1 then
-                ply:SetPlayerClass("contr")
-            else
-                ply:SetPlayerClass("police")
-            end
-            
-            if #homicide.t > 1 then
-                ply:ChatPrint("#chat.rounds.traitorAre")
-                ply:ChatPrint((homicide.t[1]:Name() .. ", " .. GetFriends(homicide.t[1])))
-            else
-                ply:ChatPrint("#chat.rounds.traitorIs")
-                ply:ChatPrint(homicide.t[1]:Name())
-            end
-            
-            ply:ChatPrint("<clr:red>WARNING: <clr:white>Killing friendlies will result in a punishment determined by staff.")
+            if homicide.roundType == 1 then ply:SetPlayerClass("contr") else ply:SetPlayerClass("police") end
+            net.Start("hg_sendchat_format")
+                net.WriteTable({
+                    "#hg.homicide.traitors",
+                    #homicide.t > 1 and table.concat(GetTraitorsNames(), ", ") or homicide.t[1]:Name()
+                })
+            net.Send(ply)
         end)
     end)
 end
-
-hook.Add("Player Spawn","bruhwtf",function(ply)
-    net.Start("homicide_roleget")
-    net.WriteTable({{}, {}})
-    net.Send(ply)
-end)
-
-
-
 
 
 -- >>> REPLACE WHOLE FUNCTION: delay roles/equipment until prep ends <<<
