@@ -163,6 +163,11 @@ function StartRound()
 end
 
 function LevelRandom()
+    -- Weighted round selection: 70% homicide, 30% others
+    if math.random(100) <= 70 then
+        return "homicide"
+    end
+
 	for i,name in pairs(LevelList) do
 		local func = TableRound(name).CanRoundNext
 		
