@@ -21,7 +21,7 @@ function nextbot.StartRoundSV()
 
     timer.Simple(15,function()
         if roundActiveName ~= "nextbot" then return end
-        local npc = ents.Create("ah_thelocust")
+        local npc = ents.Create("npc_toe")
         if not IsValid(npc) then PrintMessage(3, "Not Valid.") return end
 
         for i, point in pairs(ReadDataMap("nextbot")) do
@@ -30,7 +30,7 @@ function nextbot.StartRoundSV()
         
         npc:Spawn()
 
-        PrintMessage(3, "NextBot Spawned.")
+        PrintMessage(3, "Locust Spawned.")
     end)
 
     PrintMessage(3, "After")
@@ -62,7 +62,7 @@ end
 function nextbot.EndRound(winner)
     for i, ply in ipairs( player.GetAll() ) do
 	    if ply:Alive() then
-            PrintMessage(3,ply:GetName() .. " remains. They are victorious!")
+            PrintMessage(3,ply:GetName() .. " remains. They have survivors guilt!")
         end
     end
 end
@@ -79,7 +79,7 @@ function nextbot.PlayerSpawn2(ply,teamID)
     ply:Give("adrenaline")
     ply:Give("splint")
     ply:Give("medkit")
-    --ply:Give("weapon_radio")
+    ply:Give("weapon_radio")
 
     ply:SetLadderClimbSpeed(100)
 
