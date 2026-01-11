@@ -17,7 +17,7 @@ hl2dm.blue = {"Combine",Color(75,75,125),
 	weapons = {"weapon_hands"},
 	main_weapon = {"weapon_sar2","weapon_spas12","weapon_mp7","weapon_scout","weapon_barrett"},
 	secondary_weapon = {"weapon_hk_usp"},
-	models = {"models/player/combine_soldier.mdl"}
+	models = {"models/player/combine_soldier.mdl","models/player/combine_soldier_prisonguard.mdl","models/player/combine_super_soldier.mdl",}
 }
 
 hl2dm.teamEncoder = {
