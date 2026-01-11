@@ -1,4 +1,4 @@
---table.insert(LevelList,"css")
+table.insert(LevelList,"css")
 css = {}
 css.Name = "Counter Strike: Source"
 css.points = {}
@@ -11,14 +11,14 @@ css.terrorists = {"Terrorists",Color(176,0,0),
 	weapons = {"megamedkit","weapon_binokle","weapon_hands","weapon_hg_hatchet","med_band_small","med_band_big","med_band_small","painkiller","weapon_handcuffs","weapon_radio"},
 	main_weapon = {"weapon_asval", "weapon_mp5", "weapon_m3super"},
 	secondary_weapon = {"weapon_beretta","weapon_p99","weapon_beretta"},
-	models = {"models/player/leet.mdl","models/player/phoenix.mdl"}
+	models = {"models/player/leet.mdl","models/player/phoenix.mdl","models/player/arctic.mdl","models/player/guerilla.mdl"}
 }
 
 css.counterterrorists = {"Counter-Terrorists",Color(79,59,187),
 	weapons = {"megamedkit","weapon_binokle","weapon_hg_hatchet","weapon_hands","med_band_big","med_band_small","medkit","painkiller","weapon_handcuffs","weapon_radio"},
 	main_weapon = {"weapon_m4a1","weapon_mp7","weapon_galil"},
 	secondary_weapon = {"weapon_hk_usp", "weapon_mateba"},
-	models = {"models/player/riot.mdl"}
+	models = {"models/player/riot.mdl","models/player/gasmask.mdl","models/player/swat","models/player/urban.mdl"}
 }
 
 css.teamEncoder = {
@@ -31,8 +31,8 @@ function css.StartRound()
 	game.CleanUpMap(false)
     css.points = {}
     if !file.Read( "homigrad/maps/controlpoint/"..game.GetMap()..".txt", "DATA" ) and SERVER then
-        print("Tell the admin to add points using \"!point control_point\" or fight without control points") 
-        PrintMessage(HUD_PRINTCENTER, "Tell the admin to add points using \"!point control_point\" or fight without control points")
+        print("Nicky add the spawn points on this map or else demoted!!!") 
+        PrintMessage(HUD_PRINTCENTER, "Nicky add the spawn points on this map or else demoted!!!")
     end
 
     css.LastWave = CurTime()
