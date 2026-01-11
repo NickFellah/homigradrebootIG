@@ -40,7 +40,7 @@ function zombie.RoundEndCheck()
     if roundTimeStart + roundTime < CurTime() then
 		if not zombie.police then
 			zombie.police = true
-			PrintMessage(3,"Survivors can now escape through select points on the map.")
+			PrintMessage(3,"Survivors can now escape through the marked exits.")
 
 			local aviable = ReadDataMap("spawnpointsct")
 
