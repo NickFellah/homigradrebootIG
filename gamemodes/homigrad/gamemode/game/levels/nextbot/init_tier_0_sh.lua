@@ -56,7 +56,7 @@ function nextbot.HUDPaint_RoundLeft(white)
     if startRound > 0 and lply:Alive() then
         if playsound then
             playsound = false
-            surface.PlaySound("snd_jack_hmcd_deathmatch.mp3")
+            surface.PlaySound("snd_jack_hmcd_disaster.mp3")
         end
         lply:ScreenFade(SCREENFADE.IN, Color(0, 0, 0, 255), 0.5, 0.5)
 
