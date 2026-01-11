@@ -14,7 +14,7 @@ riot.blue = {"Rioters",Color(75,45,45),
 	weapons = {"weapon_hands","med_band_small"},
 	main_weapon = {"weapon_hammer","med_band_big","med_band_small","weapon_hg_molotov","weapon_pepperspray","weapon_hammer","med_band_big","med_band_small","weapon_pepperspray"},
 	secondary_weapon = {"weapon_hg_metalbat", "weapon_bat","weapon_pipe"},
-	models = {"models/player/Group01/male_04.mdl","models/player/Group01/male_01.mdl","models/player/Group01/male_02.mdl","models/player/Group01/male_08.mdl"}
+	models = tdm.models
 }
 
 riot.teamEncoder = {
