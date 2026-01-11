@@ -4,8 +4,9 @@ hl2dm.Name = "Half Life 2 Death Match"
 
 local models = {}
 for i = 1,9 do table.insert(models,"models/player/group03/male_0" .. i .. ".mdl") end
+for i = 1,6 do table.insert(models,"models/player/group03/female_0" .. i .. ".mdl")end
 
-hl2dm.red = {"Resistance",Color(125,95,60),
+hl2dm.red = {"Resistance",Color(255,131,0),
 	weapons = {"weapon_hands","med_band_big","med_band_small","weapon_radio"},
 	main_weapon = {"weapon_sar2","weapon_spas12","weapon_akm","weapon_mp7","weapon_scout","weapon_barrett"},
 	secondary_weapon = {"weapon_hk_usp","weapon_p220"},
