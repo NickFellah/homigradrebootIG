@@ -1,4 +1,4 @@
---table.insert(LevelList,"hl2bodycam")
+table.insert(LevelList,"hl2bodycam")
 hl2bodycam = {}
 hl2bodycam.Name = "Half Life 2 BodyCam"
 
