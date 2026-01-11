@@ -117,7 +117,7 @@ function kingkong.HUDPaint_RoundLeft(white2)
         draw.DrawText( "KingKong", "HomigradRoundFont", ScrW() / 2, ScrH() / 8, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
 
         if lply:GetModel() == "models/vedatys/orangutan.mdl" then
-            draw.DrawText( "You're surrounded by intruders! Press R To Activate Rage.", "HomigradRoundFont", ScrW() / 2, ScrH() / 1.2, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
+            draw.DrawText( "You're surrounded by pesky homigrad players! Press R To Activate Rage.", "HomigradRoundFont", ScrW() / 2, ScrH() / 1.2, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
         else
             draw.DrawText( "Neutralize King Kong. You are not expected to come out alive.", "HomigradRoundFont", ScrW() / 2, ScrH() / 1.2, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
         end
@@ -148,7 +148,7 @@ function kingkong.HUDPaint_RoundLeft(white2)
         if ply:GetModel() == "models/vedatys/orangutan.mdl" then
             draw.SimpleText("KingKong","HomigradFont",pos.x,pos.y,red,TEXT_ALIGN_CENTER,TEXT_ALIGN_CENTER)
         else
-            draw.SimpleText("Human","HomigradFont",pos.x,pos.y,red,TEXT_ALIGN_CENTER,TEXT_ALIGN_CENTER)
+            draw.SimpleText("Homigrad Player","HomigradFont",pos.x,pos.y,red,TEXT_ALIGN_CENTER,TEXT_ALIGN_CENTER)
             
         end
     end
