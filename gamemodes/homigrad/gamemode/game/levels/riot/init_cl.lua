@@ -18,9 +18,9 @@ function riot.HUDPaint_RoundLeft(white)
         draw.DrawText( "You are on team: " .. name, "HomigradFontBig", ScrW() / 2, ScrH() / 2, Color( color.r,color.g,color.b,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
         draw.DrawText( "RIOT", "HomigradFontBig", ScrW() / 2, ScrH() / 8, Color( 155,155,155,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
         if name == "Полиция" then
-            draw.DrawText( "Нейтрализуйте бунтующих людей, старайтесь не убивать", "HomigradFontBig", ScrW() / 2, ScrH() / 1.2, Color( 155,155,155,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
+            draw.DrawText( "Neutralize the rioters! try not to kill them..", "HomigradFontBig", ScrW() / 2, ScrH() / 1.2, Color( 155,155,155,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
         else
-            draw.DrawText( "Сохраните свои права! Уничтожьте всех тех, кто вас будет тормозить!", "HomigradFontBig", ScrW() / 2, ScrH() / 1.2, Color( 155,155,155,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
+            draw.DrawText( "We should not be afraid! Destroy all those who slow you down!", "HomigradFontBig", ScrW() / 2, ScrH() / 1.2, Color( 155,155,155,math.Clamp(startRound,0,1) * 255 ), TEXT_ALIGN_CENTER )
         end
         return
     end
