@@ -323,15 +323,15 @@ local bonenames = {
 }
 
 local reasons = {
-	["blood"] = "You died from server blood loss.",
+	["blood"] = "You died from servere blood loss.",
 	["pain"] = "You died from extreme & severe pain.",
-	["painlosing"] = "You died from an overdose.",
-	["adrenaline"] = "You died from an overdose.",
+	["painlosing"] = "You died from an overdose of Painkillers.",
+	["adrenaline"] = "You died from an overdose of Adrenaline.",
 	["killyourself"] = "You killed yourself.",
 	["hungry"] = "You died of hunger.",
-	["virus"] = "You died from the Zombie Virus.",
-	["poison"] = "You died from poison entering your system.",
-	["guilt"] = "You were slayed for exceeding your guilt maximum."
+	["virus"] = "You died from the UK Super Virus.",
+	["poison"] = "You died from the covid shot.",
+	["guilt"] = "You rdm'ed too much."
 }
 
 hook.Add("Player Death","plymessage",function(ply,hitgroup,dmginfo)
@@ -346,7 +346,7 @@ hook.Add("Player Death","plymessage",function(ply,hitgroup,dmginfo)
 	if ply == att then
 		ply:ChatPrint("You killed yourself.") -- FIXME: ply:ChatPrint("You killed yourself." .. add)
 	elseif reason then
-		ply:ChatPrint(reasons[reason] or "You died under mysterious circumstances.")
+		ply:ChatPrint(reasons[reason] or "You died under mysterious circumstances...ahem.")
 	elseif att then
 		local dmgtype = "wounded"
 	
@@ -361,7 +361,7 @@ hook.Add("Player Death","plymessage",function(ply,hitgroup,dmginfo)
 	
 		player.EventPoint(att:GetPos(),"hitgroup killed",512,att,ply)
 	else
-		ply:ChatPrint("You died under mysterious circumstances.")
+		ply:ChatPrint("ou died under mysterious circumstances...ahem.")
 	end
 end)
 end
