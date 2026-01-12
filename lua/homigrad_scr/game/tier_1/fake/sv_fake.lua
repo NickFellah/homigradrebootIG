@@ -913,7 +913,7 @@ hook.Add("Player Think","FakeControl",function(ply,time) --управление 
 			
 			-- Remember to not swim 30 minutes after eating
 			if (table.Count(constraint.FindConstraints( ply:GetNWEntity("Ragdoll"), 'Rope' ))>0 or ((rag.IsWeld or 0) > 0)) and ply.firstTimeNotifiedRestrained then
-				ply:ChatPrint("You have been restrained. Spam G + Space to break free.")
+				ply:ChatPrint("Oh Mama! Sexpai will like this! You been tied up, If they arent listening to you screaming your Safe-Word, Spam G + Space to break free.")
 				ply.firstTimeNotifiedRestrained = false
 			end
 			
