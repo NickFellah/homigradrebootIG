@@ -12,11 +12,26 @@ local dmRoundNames = {
     gravdm = true,
     gravteam = true,
     hl2dm = true,
-    tier_0_tdm = true
+    tier_0_tdm = true,
+    tdm = true
 }
 
 local function IsDmRound()
-    return dmRoundNames[roundActiveName] == true
+    if dmRoundNames[roundActiveName] then
+        return true
+    end
+
+    local roundTable = TableRound and TableRound()
+    local roundName = roundTable and roundTable.Name
+
+    if isstring(roundName) then
+        local lowerName = string.lower(roundName)
+        if string.find(lowerName, "deathmatch", 1, true) or string.find(lowerName, "tdm", 1, true) then
+            return true
+        end
+    end
+
+    return false
 end
 
 local function ApplyPlayerModel(ply, modelPath)
