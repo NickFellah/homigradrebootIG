@@ -2,6 +2,7 @@ if HG_PlayermodelManagerLoaded then return end
 HG_PlayermodelManagerLoaded = true
 
 util.AddNetworkString("hg_playermodel_permanent")
+util.AddNetworkString("hg_playermodel_permanent_clear")
 
 -- File path to store player models data
 local playerModelsFilePath = "hg_player_models.txt"
@@ -39,6 +40,38 @@ local function ApplyPlayerModel(ply, modelPath)
 
     ply:SetSubMaterial()
     ply:SetModel(modelPath)
+end
+
+local function GetRandomRoundModel(ply)
+    local roundTable = TableRound and TableRound()
+    if not roundTable then return nil end
+
+    local teamEncoder = roundTable.teamEncoder
+    if teamEncoder then
+        local teamKey = teamEncoder[ply:Team()]
+        local teamTable = teamKey and roundTable[teamKey]
+        if teamTable and teamTable.models and #teamTable.models > 0 then
+            return teamTable.models[math.random(#teamTable.models)]
+        end
+    end
+
+    if roundTable.models and #roundTable.models > 0 then
+        return roundTable.models[math.random(#roundTable.models)]
+    end
+
+    return nil
+end
+
+local function ApplyRandomRoundModel(ply)
+    local modelPath = GetRandomRoundModel(ply)
+    if modelPath then
+        ApplyPlayerModel(ply, modelPath)
+        return
+    end
+
+    if EasyAppearance and EasyAppearance.SetAppearance then
+        EasyAppearance.SetAppearance(ply)
+    end
 end
 
 -- Function to load player models from file
@@ -142,6 +175,14 @@ function HG_ApplyPermanentPlayermodel(ply)
     ApplyPlayerModel(ply, customModel)
 end
 
+function HG_ClearPermanentPlayermodel(ply)
+    if not IsValid(ply) or not ply:IsPlayer() then return end
+
+    playerModels[ply:SteamID()] = nil
+    SavePlayerModels()
+    ApplyRandomRoundModel(ply)
+end
+
 net.Receive("hg_playermodel_permanent", function(_, ply)
     if not IsValid(ply) or not ply:IsPlayer() then return end
     if not IsAuthorized(ply) then
@@ -165,6 +206,17 @@ net.Receive("hg_playermodel_permanent", function(_, ply)
 
     ApplyPlayerModel(ply, modelPath)
     ply:ChatPrint("Permanent model set to " .. modelPath)
+end)
+
+net.Receive("hg_playermodel_permanent_clear", function(_, ply)
+    if not IsValid(ply) or not ply:IsPlayer() then return end
+    if not IsAuthorized(ply) then
+        ply:ChatPrint("You do not have permission to use this.")
+        return
+    end
+
+    HG_ClearPermanentPlayermodel(ply)
+    ply:ChatPrint("Permanent model cleared. Reverted to round random.")
 end)
 
 -- Load player models when the script initializes

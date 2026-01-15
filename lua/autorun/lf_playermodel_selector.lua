@@ -400,6 +400,13 @@ local function ApplyPermanentPlayermodel()
 	net.WriteString( modelPath or "" )
 	net.SendToServer()
 end
+
+local function ClearPermanentPlayermodel()
+	if not LocalPlayer():IsSuperAdmin() then return end
+
+	net.Start( "hg_playermodel_permanent_clear" )
+	net.SendToServer()
+end
 --concommand.Add( "playermodel_apply", LoadPlayerModel )
 
 local function LoadFavorite( ply, cmd, args )
@@ -525,6 +532,15 @@ function Menu.Setup()
 		Menu.PermanentApplyButton.DoClick = function()
 			LoadPlayerModel()
 			ApplyPermanentPlayermodel()
+		end
+
+		Menu.PermanentClearButton = Frame:Add( "DButton" )
+		Menu.PermanentClearButton:SetSize( 160, 30 )
+		Menu.PermanentClearButton:SetPos( fw - 390, 30 )
+		Menu.PermanentClearButton:SetText( "Clear permanent" )
+		Menu.PermanentClearButton:SetEnabled( true )
+		Menu.PermanentClearButton.DoClick = function()
+			ClearPermanentPlayermodel()
 		end
 	end
 	
