@@ -1,6 +1,30 @@
+if HG_PlayermodelManagerLoaded then return end
+HG_PlayermodelManagerLoaded = true
+
+util.AddNetworkString("hg_playermodel_permanent")
+
 -- File path to store player models data
 local playerModelsFilePath = "hg_player_models.txt"
 local playerModels = {}
+local dmRoundNames = {
+    deathmatch = true,
+    ffa = true,
+    gravdm = true,
+    gravteam = true,
+    hl2dm = true,
+    tier_0_tdm = true
+}
+
+local function IsDmRound()
+    return dmRoundNames[roundActiveName] == true
+end
+
+local function ApplyPlayerModel(ply, modelPath)
+    if not modelPath then return end
+
+    ply:SetSubMaterial()
+    ply:SetModel(modelPath)
+end
 
 -- Function to load player models from file
 local function LoadPlayerModels()
@@ -92,6 +116,41 @@ function GetPlayerModelBySteamID(steamID)
     --print(playerModels[steamID])
     return playerModels[steamID]
 end
+
+function HG_ApplyPermanentPlayermodel(ply)
+    if not IsValid(ply) or not ply:IsPlayer() then return end
+
+    local customModel = GetPlayerModelBySteamID(ply:SteamID())
+
+    if not customModel or IsDmRound() then return end
+
+    ApplyPlayerModel(ply, customModel)
+end
+
+net.Receive("hg_playermodel_permanent", function(_, ply)
+    if not IsValid(ply) or not ply:IsPlayer() then return end
+    if not IsAuthorized(ply) then
+        ply:ChatPrint("You do not have permission to use this.")
+        return
+    end
+
+    local modelPath = net.ReadString()
+    if modelPath == "" or not util.IsValidModel(modelPath) then
+        ply:ChatPrint("Invalid model provided.")
+        return
+    end
+
+    playerModels[ply:SteamID()] = modelPath
+    SavePlayerModels()
+
+    if IsDmRound() then
+        ply:ChatPrint("Permanent model saved. It will apply after the current DM/TDM round.")
+        return
+    end
+
+    ApplyPlayerModel(ply, modelPath)
+    ply:ChatPrint("Permanent model set to " .. modelPath)
+end)
 
 -- Load player models when the script initializes
 LoadPlayerModels()

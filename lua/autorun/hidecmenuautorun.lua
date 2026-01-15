@@ -243,6 +243,28 @@ if (CLIENT) then
 				end
 			
 			end
+
+			local icon = IconLayout:Add( "DButton" )
+			icon:SetText( "" )
+			icon:SetSize( 80, 82 )
+			icon.Paint = function() end
+
+			local image = icon:Add( "DImage" )
+			image:SetImage( "icon64/playermodel.png" )
+			image:SetSize( 64, 64 )
+			image:Dock( TOP )
+			image:DockMargin( 8, 0, 8, 0 )
+
+			local label = icon:Add( "DLabel" )
+			label:Dock( BOTTOM )
+			label:SetText( "Enhanced PM" )
+			label:SetContentAlignment( 5 )
+			label:SetTextColor( color_white )
+			label:SetExpensiveShadow( 1, Color( 0, 0, 0, 200 ) )
+
+			icon.DoClick = function()
+				RunConsoleCommand( "hg_playermodel_selector" )
+			end
 		end
 	end
 
@@ -333,6 +355,28 @@ if (CLIENT) then
 					
 					end
 				
+				end
+
+				local icon = IconLayout:Add( "DButton" )
+				icon:SetText( "" )
+				icon:SetSize( 80, 82 )
+				icon.Paint = function() end
+
+				local image = icon:Add( "DImage" )
+				image:SetImage( "icon64/playermodel.png" )
+				image:SetSize( 64, 64 )
+				image:Dock( TOP )
+				image:DockMargin( 8, 0, 8, 0 )
+
+				local label = icon:Add( "DLabel" )
+				label:Dock( BOTTOM )
+				label:SetText( "Enhanced PM" )
+				label:SetContentAlignment( 5 )
+				label:SetTextColor( color_white )
+				label:SetExpensiveShadow( 1, Color( 0, 0, 0, 200 ) )
+
+				icon.DoClick = function()
+					RunConsoleCommand( "hg_playermodel_selector" )
 				end
 			end
 		end
