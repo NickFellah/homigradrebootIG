@@ -523,21 +523,28 @@ function Menu.Setup()
 		SetClipboardText( "http://steamcommunity.com/sharedfiles/filedetails/?id=504945881" )
 	end
 
-	if permanentMode and LocalPlayer():IsSuperAdmin() then
+	if LocalPlayer():IsSuperAdmin() then
+		local buttonWidth = 160
+		local buttonHeight = 30
+		local buttonGap = 10
+		local totalWidth = (buttonWidth * 2) + buttonGap
+		local startX = (fw - totalWidth) / 2
+
 		Menu.PermanentApplyButton = Frame:Add( "DButton" )
-		Menu.PermanentApplyButton:SetSize( 160, 30 )
-		Menu.PermanentApplyButton:SetPos( fw - 560, 30 )
+		Menu.PermanentApplyButton:SetSize( buttonWidth, buttonHeight )
+		Menu.PermanentApplyButton:SetPos( startX, 30 )
 		Menu.PermanentApplyButton:SetText( "Apply permanently" )
-		Menu.PermanentApplyButton:SetEnabled( true )
+		Menu.PermanentApplyButton:SetEnabled( permanentMode )
 		Menu.PermanentApplyButton.DoClick = function()
+			if not permanentMode then return end
 			LoadPlayerModel()
 			ApplyPermanentPlayermodel()
 		end
 
 		Menu.PermanentClearButton = Frame:Add( "DButton" )
-		Menu.PermanentClearButton:SetSize( 160, 30 )
-		Menu.PermanentClearButton:SetPos( fw - 390, 30 )
-		Menu.PermanentClearButton:SetText( "Clear permanent" )
+		Menu.PermanentClearButton:SetSize( buttonWidth, buttonHeight )
+		Menu.PermanentClearButton:SetPos( startX + buttonWidth + buttonGap, 30 )
+		Menu.PermanentClearButton:SetText( "Unapply model" )
 		Menu.PermanentClearButton:SetEnabled( true )
 		Menu.PermanentClearButton.DoClick = function()
 			ClearPermanentPlayermodel()
@@ -1672,6 +1679,15 @@ hook.Add( "PostGamemodeLoaded", "lf_playermodel_desktop_hook", function()
 				end
 			} )
 		end
+
+		list.Set( "DesktopWindows", "EnhancedPlayerModel", {
+			title		= "Enhanced PM",
+			icon		= "icon64/playermodel.png",
+			init		= function( icon, window )
+				window:Remove()
+				RunConsoleCommand( "hg_playermodel_selector" )
+			end
+		} )
 end )
 
 
