@@ -361,7 +361,7 @@ hook.Add("Player Death","plymessage",function(ply,hitgroup,dmginfo)
 	
 		player.EventPoint(att:GetPos(),"hitgroup killed",512,att,ply)
 	else
-		ply:ChatPrint("ou died under mysterious circumstances...ahem.")
+		ply:ChatPrint("You died under mysterious circumstances...ahem.")
 	end
 end)
 end
