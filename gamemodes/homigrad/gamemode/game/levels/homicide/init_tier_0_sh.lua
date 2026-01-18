@@ -188,7 +188,7 @@ function homicide.HUDPaint_RoundLeft(white2)
         if not pos.visible then continue end
         
         color.a = 255 * (1 - dis / 1024)
-        draw.SimpleText("Fellow Traitor: "..ply:Nick(),"HomigradFontBig",pos.x,pos.y,color,TEXT_ALIGN_CENTER,TEXT_ALIGN_CENTER)
+        draw.SimpleText("Traitor: "..ply:Nick(),"HomigradFontBig",pos.x,pos.y,color,TEXT_ALIGN_CENTER,TEXT_ALIGN_CENTER)
     end
 end
 
