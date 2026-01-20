@@ -210,7 +210,7 @@ SolidMapVote["Config"]["Random Mode"] = 2
 SolidMapVote["Config"]["Random Image"] = "http://i.imgur.com/oqeqWhl.png"
 
 -- This is the image for maps that are missing an image
-SolidMapVote["Config"]["Missing Image"] = ""
+SolidMapVote["Config"]["Missing Image"] = "http://i.imgur.com/TgpVmPN.png"
 SolidMapVote["Config"]["Missing Image Size"] = {
 	width = 1920,
 	height = 1080
@@ -221,7 +221,7 @@ SolidMapVote["Config"]["Missing Image Size"] = {
 SolidMapVote["Config"]["Specific Maps"] = {
 	{
 		filename = "gm_crazyrooms",
-		displayname = "Crazy Wacky Rooms",
+		displayname = "Crazy Rooms",
 		image = "https://i.imgur.com/a0CaqCQ.jpeg",
 		width = 1920,
 		height = 1080
@@ -305,7 +305,7 @@ SolidMapVote["Config"]["Specific Maps"] = {
 	},
 	{
 		filename = "gm_marquisclean",
-                displayname = "Paris",
+                displayname = "Maqruis Paris",
                 image = "https://i.imgur.com/XTn1ppK.jpeg",
                 width = 1920,
                 height = 1080 
@@ -326,21 +326,21 @@ SolidMapVote["Config"]["Specific Maps"] = {
 	},
 	{
 		filename = "ttt_hangar",
-                displayname = "Hangar",
+                displayname = "Garage Hangar",
                 image = "https://i.imgur.com/ycFgmQz.jpeg",
                 width = 1920,
                 height = 1080	                                                                                                                                                                                                
 	},
 	{
 		filename = "gm_cs_office_ext",
-                displayname = "Office (Extended)",
+                displayname = "Office (Ext)",
                 image = "https://i.imgur.com/eFALwO1.jpeg",
                 width = 1920,
                 height = 1080 
 	},
 	{
 		filename = "ttt_plaza_b7",
-                displayname = "Plaza",
+                displayname = "B7's Plaza",
                 image = "https://i.imgur.com/mErMDXR.jpeg",
                 width = 1920,
                 height = 1080
@@ -382,7 +382,7 @@ SolidMapVote["Config"]["Specific Maps"] = {
 	},
 	{
 		filename = "ttt_depot_fof",
-		displayname = "Depot",
+		displayname = "Western Depot",
 		image = "https://i.imgur.com/phuHyJO.jpeg",
 		width = 1920,
 		height = 1080
@@ -396,7 +396,7 @@ SolidMapVote["Config"]["Specific Maps"] = {
 	},
 	{
 		filename = "ttt_rooftops_2016_v1",
-		displayname = "2016 Rooftops",
+		displayname = "Rooftops",
 		image = "https://i.imgur.com/N2dVXxk.jpeg",
 		width = 1920,
 		height = 1080
@@ -417,14 +417,14 @@ SolidMapVote["Config"]["Specific Maps"] = {
 	},
 	{
 		filename = "ttt_hazard",
-		displayname = "Hazard Facility",
+		displayname = "Hazardous Facility",
 		image = "https://i.imgur.com/TxoYzyT.jpeg",
 		width = 1920,
 		height = 1080
 	},
 	{
 		filename = "ttt_warhawk_g2",
-		displayname = "Warhawk",
+		displayname = "War Ridden Town",
 		image = "https://i.imgur.com/VsPfTEG.jpeg",
 		width = 1920,
 		height = 1080
@@ -445,7 +445,7 @@ SolidMapVote["Config"]["Specific Maps"] = {
 	},
 	{
 		filename = "ttt_richland_remix_v1",
-		displayname = "Richland Estate",
+		displayname = "Richland Surburbia",
 		image = "https://i.imgur.com/kDbjN0G.jpeg",
 		width = 1920,
 		height = 1080
@@ -459,7 +459,7 @@ SolidMapVote["Config"]["Specific Maps"] = {
 	},
 	{
 		filename = "ttt_vegas_casino",
-		displayname = "Vegas",
+		displayname = "Vegas Casino",
 		image = "https://i.imgur.com/50w29OK.jpeg",
 		width = 1920,
 		height = 1080
@@ -473,7 +473,7 @@ SolidMapVote["Config"]["Specific Maps"] = {
 	},
 	{
 		filename = "ttt_clue_2022",
-		displayname = "Clue",
+		displayname = "Clue Manor",
 		image = "https://i.imgur.com/yd9RMiV.jpeg",
 		width = 1920,
 		height = 1080
